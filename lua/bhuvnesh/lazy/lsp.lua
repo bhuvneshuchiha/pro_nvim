@@ -1,0 +1,175 @@
+return {
+	-- "neovim/nvim-lspconfig",
+	-- dependencies = {
+	-- 	"williamboman/mason.nvim",
+	-- 	"williamboman/mason-lspconfig.nvim",
+	-- 	"hrsh7th/cmp-nvim-lsp",
+	-- 	"hrsh7th/cmp-buffer",
+	-- 	"hrsh7th/cmp-path",
+	-- 	"hrsh7th/cmp-cmdline",
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	"saadparwaiz1/cmp_luasnip",
+	-- 	"j-hui/fidget.nvim",
+	-- },
+	-- config = function()
+	-- 	local cmp = require("cmp")
+	-- 	local cmp_lsp = require("cmp_nvim_lsp")
+	-- 	local capabilities = vim.tbl_deep_extend(
+	-- 		"force",
+	-- 		{},
+	-- 		vim.lsp.protocol.make_client_capabilities(),
+	-- 		cmp_lsp.default_capabilities()
+	-- 	)
+	--
+	-- 	require("fidget").setup({})
+	-- 	require("mason").setup()
+	-- 	require("mason-lspconfig").setup({
+	-- 		ensure_installed = {
+	-- 			"lua_ls",
+	-- 			"rust_analyzer",
+	-- 			"pylsp",
+	-- 			"clangd",
+	-- 			"tsserver",
+	-- 		},
+	-- 		handlers = {
+	-- 			function(server_name) -- default handler (optional)
+	-- 				require("lspconfig")[server_name].setup({
+	-- 					capabilities = capabilities,
+	-- 				})
+	-- 			end,
+	--
+	-- 			["lua_ls"] = function()
+	-- 				local lspconfig = require("lspconfig")
+	-- 				lspconfig.lua_ls.setup({
+	-- 					capabilities = capabilities,
+	-- 					settings = {
+	-- 						Lua = {
+	-- 							runtime = { version = "Lua 5.1" },
+	-- 							diagnostics = {
+	-- 								globals = { "vim", "it", "describe", "before_each", "after_each" },
+	-- 							},
+	-- 						},
+	-- 					},
+	-- 				})
+	-- 			end,
+	-- 			["pylsp"] = function()
+	-- 				-- configure pylsp server
+	-- 				local lspconfig = require("lspconfig")
+	-- 				lspconfig["pylsp"].setup({
+	-- 					capabilities = capabilities,
+	-- 					settings = {
+	-- 						pylsp = {
+	-- 							plugins = {
+	-- 								jedi_completion = {
+	-- 									include_params = true,
+	-- 								},
+	-- 								pycodestyle = { enabled = false },
+	-- 							},
+	-- 						},
+	-- 					},
+	-- 				})
+	-- 			end,
+	--
+	-- 			["svelte"] = function()
+	-- 				-- configure svelte server
+	-- 				local lspconfig = require("lspconfig")
+	-- 				lspconfig["svelte"].setup({
+	-- 					capabilities = capabilities,
+	-- 					on_attach = function(client, bufnr)
+	-- 						vim.api.nvim_create_autocmd("BufWritePost", {
+	-- 							pattern = { "*.js", "*.ts" },
+	-- 							callback = function(ctx)
+	-- 								-- Here use ctx.match instead of ctx.file
+	-- 								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+	-- 							end,
+	-- 						})
+	-- 					end,
+	-- 				})
+	-- 			end,
+	--
+	-- 			["graphql"] = function()
+	-- 				-- configure graphql language server
+	-- 				local lspconfig = require("lspconfig")
+	-- 				lspconfig["graphql"].setup({
+	-- 					capabilities = capabilities,
+	-- 					filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+	-- 				})
+	-- 			end,
+	-- 			["emmet_ls"] = function()
+	-- 				-- configure emmet language server
+	-- 				local lspconfig = require("lspconfig")
+	-- 				lspconfig["emmet_ls"].setup({
+	-- 					capabilities = capabilities,
+	-- 					filetypes = {
+	-- 						"html",
+	-- 						"typescriptreact",
+	-- 						"javascriptreact",
+	-- 						"css",
+	-- 						"sass",
+	-- 						"scss",
+	-- 						"less",
+	-- 						"svelte",
+	-- 					},
+	-- 				})
+	-- 			end,
+	--
+	-- 			["clangd"] = function()
+	-- 				-- configure emmet language server
+	-- 				local lspconfig = require("lspconfig")
+	-- 				lspconfig["clangd"].setup({
+	-- 					capabilities = capabilities,
+	-- 					filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+	-- 				})
+	-- 			end,
+	-- 		},
+	-- 	})
+	--
+	-- 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
+	--
+	-- 	cmp.setup({
+	-- 		snippet = {
+	-- 			expand = function(args)
+	-- 				require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
+	-- 			end,
+	-- 		},
+	-- 		completion = {
+	-- 			completeopt = "menu,menuone,noinsert",
+	-- 		},
+	-- 		window = {
+	-- 			completion = cmp.config.window.bordered(),
+	-- 			--documentation = cmp.config.window.bordered(),
+	-- 			--documentation = cmp.config.disable,
+	-- 		},
+	-- 		mapping = cmp.mapping.preset.insert({
+	-- 			["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+	-- 			["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+	-- 			["<C-b>"] = cmp.mapping.scroll_docs(-4),
+	-- 			["<C-f>"] = cmp.mapping.scroll_docs(4),
+	-- 			["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+	-- 			["<C-e>"] = cmp.mapping.abort(), -- close completion window
+	-- 			["<CR>"] = cmp.mapping.confirm({ select = false }),
+	-- 		}),
+	-- 		sources = cmp.config.sources({
+	-- 			{ name = "nvim_lsp" },
+	-- 			{ name = "luasnip" }, -- For luasnip users.
+	-- 			{ name = "buffer" },
+	-- 			{ name = "path" },
+	-- 			{ name = "treesitter" },
+	-- 			{ name = "tmux" },
+	-- 		}),
+	-- 	})
+	--
+	-- 	vim.diagnostic.config({
+	-- 		-- update_in_insert = true,
+	-- 		float = {
+	-- 			focusable = false,
+	-- 			style = "minimal",
+	-- 			border = "rounded",
+	-- 			source = "always",
+	-- 			header = "",
+	-- 			prefix = "",
+	-- 		},
+	-- 	})
+	-- end,
+}
