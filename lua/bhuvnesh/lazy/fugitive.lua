@@ -25,13 +25,16 @@ return {
 					vim.cmd.Git({ "pull", "--rebase" })
 				end, opts)
 
+				vim.keymap.set("n", "<leader>gc", function()
+					vim.cmd.Git("commit")
+				end, opts)
 				-- NOTE: It allows me to easily set the branch i am pushing and any tracking
 				-- needed if i did not set the branch up correctly
-				vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
+				vim.keymap.set("n", "<leader>gp", ":git push -u origin ", opts)
 			end,
 		})
 
-		vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+		vim.keymap.set("n", "gf", "<cmd>diffget //2<CR>")
 		vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
 	end,
 }
