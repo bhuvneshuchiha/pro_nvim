@@ -9,11 +9,9 @@ vim.o.signcolumn = "yes"
 
 -- Increase the number column width to include padding
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 require("bhuvnesh.set")
 require("bhuvnesh.remap")
 require("bhuvnesh.lazy_init")
-
 -- Define a function to check the filetype and run gcc if cpp
 -- DO.not
 -- DO NOT INCLUDE THIS
@@ -121,3 +119,22 @@ vim.opt.showmode = true -- need to vim.opt it true to show commands in status li
 vim.opt.formatoptions:append({ "r" })
 vim.opt.statusline = [[%<%F %h%m%r %y %=%{v:register} %-14.(%l,%c%V%) %p%%]] -- for the status line
 -- vim.api.nvim_set_keymap("n", "<leader>e", ":Lexplore<CR>", { noremap = true, silent = true }) --netrw binding.
+
+-- IMPORTANT **RestoreCursorPosition**
+function RestoreCursorPosition()
+	local line = vim.fn.line("'\"")
+	if
+		line > 1
+		and line <= vim.fn.line("$")
+		and vim.bo.filetype ~= "commit"
+		and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
+	then
+		vim.cmd('normal! g`"')
+	end
+end
+
+if vim.fn.has("autocmd") then
+	vim.cmd([[
+    autocmd BufReadPost * lua RestoreCursorPosition()
+  ]])
+end
