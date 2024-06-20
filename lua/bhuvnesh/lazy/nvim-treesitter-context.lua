@@ -18,7 +18,9 @@ return {
 		vim.keymap.set("n", "[c", function()
 			require("treesitter-context").go_to_context(vim.v.count1)
 		end, { silent = true })
-		vim.cmd([[highlight TreesitterContext   guibg=NONE]])
-		vim.cmd([[highlight TreesitterContextLineNumber   guibg=NONE]])
+		vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none", fg = "NONE" })
+		vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "none", fg = "NONE" })
+		vim.api.nvim_set_hl(0, "TreesitterContextBottom", { bg = "none", fg = "NONE" })
+		vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { bg = "none", fg = "NONE" })
 	end,
 }

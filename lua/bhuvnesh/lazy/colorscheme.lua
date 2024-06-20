@@ -7,7 +7,7 @@
 -- 		require("tokyonight").setup({
 -- 			-- your configuration comes here
 -- 			-- or leave it empty to use the default settings
--- 			style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+-- 			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 -- 			light_style = "day", -- The theme is used when the background is set to light
 -- 			transparent = true, -- Enable this to disable setting the background color
 -- 			disable_background = true,
@@ -45,58 +45,43 @@
 -- 	end,
 -- }
 --
--- return {
--- 	"ellisonleao/gruvbox.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		require("gruvbox").setup({
--- 			terminal_colors = true, -- add neovim terminal colors
--- 			undercurl = true,
--- 			underline = true,
--- 			bold = true,
--- 			italic = {
--- 				strings = false,
--- 				emphasis = false,
--- 				comments = false,
--- 				operators = false,
--- 				folds = false,
--- 			},
--- 			strikethrough = true,
--- 			invert_selection = false,
--- 			invert_signs = false,
--- 			invert_tabline = false,
--- 			invert_intend_guides = false,
--- 			inverse = true, -- invert background for search, diffs, statuslines and errors
--- 			contrast = "", -- can be "hard", "soft" or empty string
--- 			palette_overrides = {},
--- 			overrides = {},
--- 			dim_inactive = false,
--- 			transparent_mode = true,
--- 		})
+return {
+	"ellisonleao/gruvbox.nvim",
+	priority = 1000,
+	config = function()
+		require("gruvbox").setup({
+			terminal_colors = true, -- add neovim terminal colors
+			undercurl = true,
+			underline = true,
+			bold = true,
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			strikethrough = true,
+			invert_selection = false,
+			invert_signs = false,
+			invert_tabline = false,
+			invert_intend_guides = false,
+			inverse = true, -- invert background for search, diffs, statuslines and errors
+			contrast = "", -- can be "hard", "soft" or empty string
+			palette_overrides = {},
+			overrides = {},
+			dim_inactive = false,
+			transparent_mode = true,
+		})
+
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.o.background = "dark" -- or "light" for light mode
+		vim.cmd("colorscheme gruvbox")
+	end,
+}
+
 --
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- 		vim.o.background = "dark" -- or "light" for light mode
--- 		vim.cmd("colorscheme gruvbox")
--- 	end,
--- }
---
--- return {
--- 	"rose-pine",
--- 	priority = 1000,
--- 	config = function()
--- 		require("rose-pine").setup({
---
--- 			styles = {
--- 				bold = false,
--- 				italic = false,
--- 				transparency = true,
--- 			},
--- 		})
---
--- 		vim.cmd.colorscheme("rose-pine")
--- 	end,
--- }
 
 -- return {
 --   "folke/tokyonight.nvim",
@@ -147,107 +132,105 @@
 --   end,
 -- }
 -- return {
---   "sainnhe/sonokai",
---   priority = 1000,
---   config = function()
---     vim.g.sonokai_transparent_background = "1"
---     vim.g.sonokai_enable_italic = "0"
---     vim.g.sonokai_style = "andromeda"
---     vim.cmd.colorscheme("sonokai")
+-- 	"sainnhe/sonokai",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.g.sonokai_transparent_background = "1"
+-- 		vim.g.sonokai_enable_italic = "0"
+-- 		vim.g.sonokai_style = "andromeda"
+-- 		vim.cmd.colorscheme("sonokai")
 --
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---   end,
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 	end,
 -- }
 
 -- return {
---   "catppuccin/nvim",
---   name = "catppuccin",
---   priority = 1000,
---   lazy = false,
---   config = function()
---     local catppuccin = require("catppuccin")
---     local palettes = require("catppuccin.palettes")
---     local mocha = palettes.get_palette("mocha")
+-- 	"catppuccin/nvim",
+-- 	name = "catppuccin",
+-- 	priority = 1000,
+-- 	lazy = false,
+-- 	config = function()
+-- 		local catppuccin = require("catppuccin")
+-- 		local palettes = require("catppuccin.palettes")
+-- 		local mocha = palettes.get_palette("mocha")
 --
---     catppuccin.setup({
---       flavour = "mocha",
---       compile = { enabled = true, path = vim.fn.stdpath("cache") .. "/catppuccin" },
---       transparent_background = true,
---       term_colors = false,
---       integrations = {
---         aerial = false,
---         bufferline = true,
---         cmp = true,
---         dap = { enabled = true, enable_ui = true },
---         gitsigns = true,
---         lsp_trouble = true,
---         markdown = false,
---         mason = true,
---         mini = true,
---         native_lsp = { enabled = true },
---         notify = true,
---         rainbow_delimiters = true,
---         semantic_tokens = true,
---         telescope = true,
---         treesitter = true,
---         which_key = true,
---       },
---       highlight_overrides = {
---         mocha = {
---           DiagnosticVirtualTextError = { bg = mocha.base, style = {} },
---           DiagnosticVirtualTextWarn = { bg = mocha.base, style = {} },
---           DiagnosticVirtualTextInfo = { bg = mocha.base, style = {} },
---           DiagnosticVirtualTextHint = { bg = mocha.base, style = {} },
---           DiagnosticFloatingError = { bg = mocha.base, style = {} },
---           DiagnosticFloatingWarn = { bg = mocha.base, style = {} },
---           DiagnosticFloatingInfo = { bg = mocha.base, style = {} },
---           DiagnosticFloatingHint = { bg = mocha.base, style = {} },
---         },
---       },
---     })
+-- 		catppuccin.setup({
+-- 			flavour = "mocha",
+-- 			compile = { enabled = true, path = vim.fn.stdpath("cache") .. "/catppuccin" },
+-- 			transparent_background = true,
+-- 			term_colors = false,
+-- 			integrations = {
+-- 				aerial = false,
+-- 				bufferline = true,
+-- 				cmp = true,
+-- 				dap = { enabled = true, enable_ui = true },
+-- 				gitsigns = true,
+-- 				lsp_trouble = true,
+-- 				markdown = false,
+-- 				mason = true,
+-- 				mini = true,
+-- 				native_lsp = { enabled = true },
+-- 				notify = true,
+-- 				rainbow_delimiters = true,
+-- 				semantic_tokens = true,
+-- 				telescope = true,
+-- 				treesitter = true,
+-- 				which_key = true,
+-- 			},
+-- 			highlight_overrides = {
+-- 				mocha = {
+-- 					DiagnosticVirtualTextError = { bg = mocha.base, style = {} },
+-- 					DiagnosticVirtualTextWarn = { bg = mocha.base, style = {} },
+-- 					DiagnosticVirtualTextInfo = { bg = mocha.base, style = {} },
+-- 					DiagnosticVirtualTextHint = { bg = mocha.base, style = {} },
+-- 					DiagnosticFloatingError = { bg = mocha.base, style = {} },
+-- 					DiagnosticFloatingWarn = { bg = mocha.base, style = {} },
+-- 					DiagnosticFloatingInfo = { bg = mocha.base, style = {} },
+-- 					DiagnosticFloatingHint = { bg = mocha.base, style = {} },
+-- 				},
+-- 			},
+-- 		})
 --
---     -- vim.g.catppuccin_flavour = "macchiato"
---     vim.cmd([[colorscheme catppuccin]])
+-- 		-- vim.g.catppuccin_flavour = "macchiato"
+-- 		vim.cmd([[colorscheme catppuccin]])
 --
---     vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
---     vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
+-- 		vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+-- 		vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
 --
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---   end,
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 	end,
 -- }
 
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
-end
-return {
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				disable_background = true,
-				disable_float_background = true,
-				styles = {
-					bold = true,
-					italic = false,
-					transparency = true,
-				},
-				highlight_groups = {
-					Cursor = { fg = "black", bg = "#ffffff" }, -- Cursor color white
-				},
-			})
-
-			vim.cmd("colorscheme rose-pine")
-			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
-			ColorMyPencils()
-		end,
-	},
-}
+-- function ColorMyPencils(color)
+-- 	color = color or "rose-pine"
+-- 	vim.cmd.colorscheme(color)
+-- end
+-- return {
+-- 	{
+-- 		"rose-pine/neovim",
+-- 		name = "rose-pine",
+-- 		config = function()
+-- 			require("rose-pine").setup({
+-- 				disable_background = true,
+-- 				-- disable_float_background = true,
+-- 				styles = {
+-- 					italic = false,
+-- 					-- transparency = true,
+-- 				},
+-- 				highlight_groups = {
+-- 					Cursor = { fg = "black", bg = "#ffffff" }, -- Cursor color white
+-- 				},
+-- 			})
+-- 			vim.cmd("colorscheme rose-pine")
+-- 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--
+-- 			ColorMyPencils()
+-- 		end,
+-- 	},
+-- }
 
 -- return {
 --   "rebelot/kanagawa.nvim", -- Repositorio del colorscheme

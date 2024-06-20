@@ -223,8 +223,8 @@ return {
 			},
 			window = {
 				-- completion = cmp.config.window.bordered(),
-				--documentation = cmp.config.window.bordered(),
-				documentation = cmp.config.disable,
+				documentation = cmp.config.window.bordered(),
+				--documentation = cmp.config.disable,
 			},
 			-- mapping = cmp.mapping.preset.insert({
 			-- 	["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion

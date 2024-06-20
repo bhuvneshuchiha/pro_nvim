@@ -14,7 +14,7 @@ return {
 			defaults = {
 				file_ignore_patterns = { "%.git/" }, -- Optional: ignore git files
 				preview = {
-					hide_on_startup = true, -- This line disables the previewer
+					hide_on_startup = true,
 				},
 				mappings = {
 					i = {
@@ -25,14 +25,16 @@ return {
 					},
 				},
 			},
-			pickers = {
-				find_files = {
-					previewer = false, -- Disable preview for find_files
-				},
-				live_grep = {
-					previewer = false, -- Disable preview for live_grep
-				},
-			},
+
+			-- This line disables the previewer
+			-- pickers = {
+			-- 	find_files = {
+			-- 		previewer = true, -- Disable preview for find_files
+			-- 	},
+			-- 	live_grep = {
+			-- 		previewer = true, -- Disable preview for live_grep
+			-- 	},
+			-- },
 		})
 
 		local builtin = require("telescope.builtin")
