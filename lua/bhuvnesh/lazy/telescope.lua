@@ -27,14 +27,14 @@ return {
 			},
 
 			-- This line disables the previewer
-			-- pickers = {
-			-- 	find_files = {
-			-- 		previewer = true, -- Disable preview for find_files
-			-- 	},
-			-- 	live_grep = {
-			-- 		previewer = true, -- Disable preview for live_grep
-			-- 	},
-			-- },
+			pickers = {
+				find_files = {
+					previewer = true, -- Disable preview for find_files
+				},
+				live_grep = {
+					previewer = true, -- Disable preview for live_grep
+				},
+			},
 		})
 
 		local builtin = require("telescope.builtin")

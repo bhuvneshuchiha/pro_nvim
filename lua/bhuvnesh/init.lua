@@ -69,7 +69,7 @@ o.cursorline = false
 o.expandtab = true
 o.smartindent = true
 o.tabstop = 2
-o.shiftwidth = 2
+o.shiftwidth = 4
 
 vim.opt.list = false
 vim.scriptencoding = "utf-8"

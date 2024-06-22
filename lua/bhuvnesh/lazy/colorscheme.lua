@@ -7,16 +7,16 @@
 -- 		require("tokyonight").setup({
 -- 			-- your configuration comes here
 -- 			-- or leave it empty to use the default settings
--- 			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+-- 			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 -- 			light_style = "day", -- The theme is used when the background is set to light
--- 			transparent = true, -- Enable this to disable setting the background color
--- 			disable_background = true,
+-- 			transparent = false, -- Enable this to disable setting the background color
+-- 			disable_background = false,
 -- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
 -- 			styles = {
 -- 				-- Style to be applied to different syntax groups
 -- 				-- Value is any valid attr-list value for `:help nvim_set_hl`
--- 				comments = { italic = false, bold = false },
--- 				keywords = { italic = false, bold = false },
+-- 				comments = { italic = false },
+-- 				keywords = { italic = false },
 -- 				functions = {},
 -- 				variables = {},
 -- 				-- Background styles. Can be "dark", "transparent" or "normal"
@@ -33,26 +33,29 @@
 -- 			--- function will be called with a ColorScheme table
 -- 			-- ---@param colors ColorScheme
 -- 			-- on_colors = function(colors)
--- 			--   colors.hint = colors.cyan
+-- 			-- 	colors.fg_gutter = colors.cyan
+-- 			-- 	colors.hint = colors.cyan
 -- 			-- end,
--- 			-- --- You can override specific highlights to use other groups or a hex color
--- 			-- --- function will be called with a Highlights and ColorScheme table
+-- 			-- You can override specific highlights to use other groups or a hex color
+-- 			-- function will be called with a Highlights and ColorScheme table
 -- 			-- ---@param highlights Highlights
 -- 			-- ---@param colors ColorScheme
--- 			-- on_highlights = function(hl, c) end,
+-- 			-- 	on_highlights = function(hl, c)
+-- 			-- 		hl.ColorColumn = { bg = "orange" }
+-- 			-- 	end,
 -- 		})
 -- 		vim.cmd("colorscheme tokyonight")
 -- 	end,
 -- }
---
+
 return {
 	"ellisonleao/gruvbox.nvim",
 	priority = 1000,
 	config = function()
 		require("gruvbox").setup({
 			terminal_colors = true, -- add neovim terminal colors
-			undercurl = true,
-			underline = true,
+			undercurl = false,
+			underline = false,
 			bold = true,
 			italic = {
 				strings = false,
@@ -67,69 +70,72 @@ return {
 			invert_tabline = false,
 			invert_intend_guides = false,
 			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "", -- can be "hard", "soft" or empty string
+			contrast = "hard", -- can be "hard", "soft" or empty string
 			palette_overrides = {},
-			overrides = {},
+			overrides = {
+				SignColumn = {},
+				-- ColorColumn = { bg = "#B7B644" },
+				-- LineNr = { fg = "#B7B644" },
+				-- statusline = { bg = "#302F2D" },
+			},
 			dim_inactive = false,
-			transparent_mode = true,
+			transparent_mode = false,
 		})
 
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 		vim.o.background = "dark" -- or "light" for light mode
+
 		vim.cmd("colorscheme gruvbox")
+		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 	end,
 }
 
---
-
 -- return {
---   "folke/tokyonight.nvim",
---   priority = 1000,
---   config = function()
---     local transparent = false -- set to true if you would like to enable transparency
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		local transparent = false -- set to true if you would like to enable transparency
 --
---     local bg = "#011628"
---     local bg_dark = "#011423"
---     local bg_highlight = "#143652"
---     local bg_search = "#0A64AC"
---     local bg_visual = "#275378"
---     local fg = "#CBE0F0"
---     local fg_dark = "#B4D0E9"
---     local fg_gutter = "#627E97"
---     local border = "#547998"
+-- 		local bg = "#011628"
+-- 		local bg_dark = "#011423"
+-- 		local bg_highlight = "#143652"
+-- 		local bg_search = "#0A64AC"
+-- 		local bg_visual = "#275378"
+-- 		local fg = "#CBE0F0"
+-- 		local fg_dark = "#B4D0E9"
+-- 		local fg_gutter = "#627E97"
+-- 		local border = "#547998"
 --
---     require("tokyonight").setup({
---       style = "night",
---       transparent = transparent,
---       styles = {
---         sidebars = transparent and "transparent" or "dark",
---         floats = transparent and "transparent" or "dark",
---       },
---       on_colors = function(colors)
---         colors.bg = bg
---         colors.bg_dark = transparent and colors.none or bg_dark
---         colors.bg_float = transparent and colors.none or bg_dark
---         colors.bg_highlight = bg_highlight
---         colors.bg_popup = bg_dark
---         colors.bg_search = bg_search
---         colors.bg_sidebar = transparent and colors.none or bg_dark
---         colors.bg_statusline = transparent and colors.none or bg_dark
---         colors.bg_visual = bg_visual
---         colors.border = border
---         colors.fg = fg
---         colors.fg_dark = fg_dark
---         colors.fg_float = fg
---         colors.fg_gutter = fg_gutter
---         colors.fg_sidebar = fg_dark
---       end,
---     })
+-- 		require("tokyonight").setup({
+-- 			style = "night",
+-- 			transparent = transparent,
+-- 			styles = {
+-- 				sidebars = transparent and "transparent" or "dark",
+-- 				floats = transparent and "transparent" or "dark",
+-- 			},
+-- 			on_colors = function(colors)
+-- 				colors.bg = bg
+-- 				colors.bg_dark = transparent and colors.none or bg_dark
+-- 				colors.bg_float = transparent and colors.none or bg_dark
+-- 				colors.bg_highlight = bg_highlight
+-- 				colors.bg_popup = bg_dark
+-- 				colors.bg_search = bg_search
+-- 				colors.bg_sidebar = transparent and colors.none or bg_dark
+-- 				colors.bg_statusline = transparent and colors.none or bg_dark
+-- 				colors.bg_visual = bg_visual
+-- 				colors.border = border
+-- 				colors.fg = fg
+-- 				colors.fg_dark = fg_dark
+-- 				colors.fg_float = fg
+-- 				colors.fg_gutter = fg_gutter
+-- 				colors.fg_sidebar = fg_dark
+-- 			end,
+-- 		})
 --
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 --
---     vim.cmd("colorscheme tokyonight")
---   end,
+-- 		vim.cmd("colorscheme tokyonight")
+-- 	end,
 -- }
 -- return {
 -- 	"sainnhe/sonokai",
@@ -202,34 +208,37 @@ return {
 -- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- 	end,
 -- }
+-- return {
+-- 	{
+-- 		"erikbackman/brightburn.vim",
+-- 	},
+-- 	}
 
 -- function ColorMyPencils(color)
 -- 	color = color or "rose-pine"
+-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- 	vim.cmd.colorscheme(color)
 -- end
--- return {
--- 	{
--- 		"rose-pine/neovim",
--- 		name = "rose-pine",
--- 		config = function()
--- 			require("rose-pine").setup({
--- 				disable_background = true,
--- 				-- disable_float_background = true,
--- 				styles = {
--- 					italic = false,
--- 					-- transparency = true,
--- 				},
--- 				highlight_groups = {
--- 					Cursor = { fg = "black", bg = "#ffffff" }, -- Cursor color white
--- 				},
--- 			})
--- 			vim.cmd("colorscheme rose-pine")
--- 			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 --
--- 			ColorMyPencils()
--- 		end,
--- 	},
+-- return {
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
+-- 	config = function()
+-- 		require("rose-pine").setup({
+-- 			disable_background = true,
+-- 			-- disable_float_background = true,
+-- 			styles = {
+-- 				italic = false,
+-- 				-- transparency = true,
+-- 			},
+-- 			highlight_groups = {
+-- 				Cursor = { fg = "black", bg = "#ffffff" }, -- Cursor color white
+-- 			},
+-- 		})
+-- 		vim.cmd("colorscheme rose-pine")
+-- 		ColorMyPencils()
+-- 	end,
 -- }
 
 -- return {

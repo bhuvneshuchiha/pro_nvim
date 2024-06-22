@@ -8,7 +8,12 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
+		{
+			"L3MON4D3/LuaSnip",
+			version = "v2.*",
+			build = "make install_jsregexp",
+			dependencies = { "rafamadriz/friendly-snippets" },
+		},
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
 	},
@@ -123,31 +128,31 @@ return {
 					})
 				end,
 
-				["svelte"] = function()
-					-- configure svelte server
-					local lspconfig = require("lspconfig")
-					lspconfig["svelte"].setup({
-						capabilities = capabilities,
-						on_attach = function(client, bufnr)
-							vim.api.nvim_create_autocmd("BufWritePost", {
-								pattern = { "*.js", "*.ts" },
-								callback = function(ctx)
-									-- Here use ctx.match instead of ctx.file
-									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-								end,
-							})
-						end,
-					})
-				end,
-
-				["graphql"] = function()
-					-- configure graphql language server
-					local lspconfig = require("lspconfig")
-					lspconfig["graphql"].setup({
-						capabilities = capabilities,
-						filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-					})
-				end,
+				-- ["svelte"] = function()
+				-- 	-- configure svelte server
+				-- 	local lspconfig = require("lspconfig")
+				-- 	lspconfig["svelte"].setup({
+				-- 		capabilities = capabilities,
+				-- 		on_attach = function(client, bufnr)
+				-- 			vim.api.nvim_create_autocmd("BufWritePost", {
+				-- 				pattern = { "*.js", "*.ts" },
+				-- 				callback = function(ctx)
+				-- 					-- Here use ctx.match instead of ctx.file
+				-- 					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+				-- 				end,
+				-- 			})
+				-- 		end,
+				-- 	})
+				-- end,
+				--
+				-- ["graphql"] = function()
+				-- 	-- configure graphql language server
+				-- 	local lspconfig = require("lspconfig")
+				-- 	lspconfig["graphql"].setup({
+				-- 		capabilities = capabilities,
+				-- 		filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+				-- 	})
+				-- end,
 				["emmet_ls"] = function()
 					-- configure emmet language server
 					local lspconfig = require("lspconfig")
@@ -170,6 +175,7 @@ return {
 					-- configure emmet language server
 					local lspconfig = require("lspconfig")
 					lspconfig["clangd"].setup({
+						showOrigin = false,
 						capabilities = capabilities,
 						filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 					})
@@ -226,12 +232,6 @@ return {
 				documentation = cmp.config.window.bordered(),
 				--documentation = cmp.config.disable,
 			},
-			-- mapping = cmp.mapping.preset.insert({
-			-- 	["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-			-- 	["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
-			-- 	["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-			-- 	["<C-y>"] = cmp.mapping.confirm({ select = false }),
-			-- }),
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -258,6 +258,13 @@ return {
 							buffer = "[Buffer]",
 							latex_symbols = "[LaTeX]",
 						})[entry.source.name]
+						-- vim_item.menu = ({
+						-- 	nvim_lsp = "",
+						-- 	nvim_lua = "",
+						-- 	luasnip = "",
+						-- 	buffer = "",
+						-- 	latex_symbols = "",
+						-- })[entry.source.name]
 						return vim_item
 					else
 						-- From lspkind
