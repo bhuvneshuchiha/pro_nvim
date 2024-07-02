@@ -119,7 +119,7 @@ return {
 										include_params = true,
 									},
 									mccabe = { enabled = false },
-									pylint = { enabled = false },
+									pylint = { enabled = true },
 									pyflakes = { enabled = false },
 									pycodestyle = { enabled = false },
 								},
@@ -229,7 +229,7 @@ return {
 			},
 			window = {
 				-- completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
 				--documentation = cmp.config.disable,
 			},
 			mapping = cmp.mapping.preset.insert({

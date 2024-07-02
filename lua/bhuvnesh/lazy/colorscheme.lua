@@ -1,99 +1,112 @@
+return {
+	"rose-pine/neovim",
+	name = "rose-pine",
+	config = function()
+		require("rose-pine").setup({
+			disable_background = true,
+			styles = {
+				italic = false,
+			},
+		})
+		vim.cmd("colorscheme rose-pine")
+	end,
+}
 -- return {
 -- 	"folke/tokyonight.nvim",
--- 	priority = 1000,
 -- 	config = function()
--- 		local transparent = true -- set to true if you would like to enable transparency
---
 -- 		require("tokyonight").setup({
 -- 			-- your configuration comes here
 -- 			-- or leave it empty to use the default settings
--- 			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
--- 			light_style = "day", -- The theme is used when the background is set to light
--- 			transparent = false, -- Enable this to disable setting the background color
--- 			disable_background = false,
--- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+-- 			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+-- 			transparent = true, -- Enable this to disable setting the background color
+-- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
 -- 			styles = {
 -- 				-- Style to be applied to different syntax groups
 -- 				-- Value is any valid attr-list value for `:help nvim_set_hl`
 -- 				comments = { italic = false },
 -- 				keywords = { italic = false },
--- 				functions = {},
--- 				variables = {},
 -- 				-- Background styles. Can be "dark", "transparent" or "normal"
--- 				sidebars = "transparent", -- style for sidebars, see below
--- 				floats = "transparent", -- style for floating windows
+-- 				sidebars = "dark", -- style for sidebars, see below
+-- 				floats = "dark", -- style for floating windows
 -- 			},
--- 			sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
--- 			day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
--- 			hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
--- 			dim_inactive = false, -- dims inactive windows
--- 			lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
---
--- 			--- You can override specific color groups to use other groups or a hex color
--- 			--- function will be called with a ColorScheme table
--- 			-- ---@param colors ColorScheme
--- 			-- on_colors = function(colors)
--- 			-- 	colors.fg_gutter = colors.cyan
--- 			-- 	colors.hint = colors.cyan
--- 			-- end,
--- 			-- You can override specific highlights to use other groups or a hex color
--- 			-- function will be called with a Highlights and ColorScheme table
--- 			-- ---@param highlights Highlights
--- 			-- ---@param colors ColorScheme
--- 			-- 	on_highlights = function(hl, c)
--- 			-- 		hl.ColorColumn = { bg = "orange" }
--- 			-- 	end,
 -- 		})
 -- 		vim.cmd("colorscheme tokyonight")
 -- 	end,
 -- }
 
-return {
-	"ellisonleao/gruvbox.nvim",
-	priority = 1000,
-	config = function()
-		require("gruvbox").setup({
-			terminal_colors = true, -- add neovim terminal colors
-			undercurl = false,
-			underline = false,
-			bold = true,
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-			strikethrough = true,
-			invert_selection = false,
-			invert_signs = false,
-			invert_tabline = false,
-			invert_intend_guides = false,
-			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "hard", -- can be "hard", "soft" or empty string
-			palette_overrides = {},
-			overrides = {
-				SignColumn = {},
-				-- ColorColumn = { bg = "#B7B644" },
-				-- LineNr = { fg = "#B7B644" },
-				-- statusline = { bg = "#302F2D" },
-			},
-			dim_inactive = false,
-			transparent_mode = false,
-		})
+--return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		-- local transparent = false -- set to true if you would like to enable transparency
+--
+-- 		require("tokyonight").setup({
+-- 			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+-- 			light_style = "day", -- The theme is used when the background is set to light
+-- 			transparent = true, -- Enable this to disable setting the background color
+-- 			-- disable_background = true,
+-- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+-- 			styles = {
+-- 				comments = { italic = false },
+-- 				keywords = { italic = false },
+-- 				functions = {},
+-- 				variables = {},
+-- 				-- Background styles. Can be "dark", "transparent" or "normal"
+-- 				sidebars = "dark", -- style for sidebars, see below
+-- 				floats = "dark", -- style for floating windows
+-- 			},
+-- 		})
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 		vim.cmd("colorscheme tokyonight")
+-- 	end,
+-- }
 
-		vim.o.background = "dark" -- or "light" for light mode
-
-		vim.cmd("colorscheme gruvbox")
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-	end,
-}
+-- return {
+-- 	"ellisonleao/gruvbox.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("gruvbox").setup({
+-- 			terminal_colors = true, -- add neovim terminal colors
+-- 			undercurl = false,
+-- 			underline = false,
+-- 			bold = true,
+-- 			italic = {
+-- 				strings = false,
+-- 				emphasis = false,
+-- 				comments = false,
+-- 				operators = false,
+-- 				folds = false,
+-- 			},
+-- 			strikethrough = true,
+-- 			invert_selection = false,
+-- 			invert_signs = false,
+-- 			invert_tabline = false,
+-- 			invert_intend_guides = false,
+-- 			inverse = true, -- invert background for search, diffs, statuslines and errors
+-- 			contrast = "hard", -- can be "hard", "soft" or empty string
+-- 			palette_overrides = {},
+-- 			overrides = {
+-- 				SignColumn = {},
+-- 				-- ColorColumn = { bg = "#B7B644" },
+-- 				-- LineNr = { fg = "#B7B644" },
+-- 				-- statusline = { bg = "#302F2D" },
+-- 			},
+-- 			dim_inactive = false,
+-- 			transparent_mode = false,
+-- 		})
+--
+-- 		vim.o.background = "dark" -- or "light" for light mode
+--
+-- 		vim.cmd("colorscheme gruvbox")
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 	end,
+-- }
 
 -- return {
 -- 	"folke/tokyonight.nvim",
 -- 	priority = 1000,
 -- 	config = function()
--- 		local transparent = false -- set to true if you would like to enable transparency
+-- 		local transparent = true -- set to true if you would like to enable transparency
 --
 -- 		local bg = "#011628"
 -- 		local bg_dark = "#011423"
@@ -131,9 +144,6 @@ return {
 -- 			end,
 -- 		})
 --
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---
 -- 		vim.cmd("colorscheme tokyonight")
 -- 	end,
 -- }
@@ -148,6 +158,7 @@ return {
 --
 -- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 -- 	end,
 -- }
 
@@ -208,16 +219,9 @@ return {
 -- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- 	end,
 -- }
--- return {
--- 	{
--- 		"erikbackman/brightburn.vim",
--- 	},
--- 	}
 
 -- function ColorMyPencils(color)
 -- 	color = color or "rose-pine"
--- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- 	vim.cmd.colorscheme(color)
 -- end
 --
@@ -230,7 +234,7 @@ return {
 -- 			-- disable_float_background = true,
 -- 			styles = {
 -- 				italic = false,
--- 				-- transparency = true,
+-- 				transparency = false,
 -- 			},
 -- 			highlight_groups = {
 -- 				Cursor = { fg = "black", bg = "#ffffff" }, -- Cursor color white
@@ -240,7 +244,7 @@ return {
 -- 		ColorMyPencils()
 -- 	end,
 -- }
-
+--
 -- return {
 --   "rebelot/kanagawa.nvim", -- Repositorio del colorscheme
 --   lazy = false,
@@ -271,8 +275,8 @@ return {
 --       },
 --     }) -- Carga el colorscheme automáticamente
 --
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--         vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 --     vim.cmd("colorscheme kanagawa-dragon") -- El colorscheme a utilizar
 --   end,
 -- }
@@ -288,6 +292,3 @@ return {
 --     vim.cmd("colorscheme ayu_dark") -- El colorscheme a utilizar
 --   end,
 -- }
-
--- Se ocupa un colorscheme personalizado, bajo el directorio de themes/. Lo que hará este colorscheme
--- será suplir los espacios vacios donde el highlighting personalizado no cumple.

@@ -65,10 +65,10 @@ return {
 					},
 				},
 			},
-			window = {
-				position = "float",
-				width = 35,
-			},
+			-- window = {
+			-- 	position = "float",
+			-- 	width = 35,
+			-- },
 			filesystem = {
 				--	hijack_netrw_behavior = "open_current",
 				hijack_netrw_behavior = "disabled", -- Comment to use neo-tree as main file exp.
