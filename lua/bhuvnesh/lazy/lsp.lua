@@ -230,7 +230,7 @@ return {
 			window = {
 				-- completion = cmp.config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
-				--documentation = cmp.config.disable,
+				documentation = cmp.config.disable,
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item(),
@@ -274,10 +274,10 @@ return {
 			},
 
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
-				{ name = "buffer" },
-				{ name = "path" },
+				{ name = "nvim_lsp", max_item_count = 10 },
+				{ name = "luasnip", max_item_count = 10 }, -- For luasnip users.
+				{ name = "buffer", max_item_count = 10 },
+				{ name = "path", max_item_count = 10 },
 				-- { name = "treesitter" },
 				-- { name = "tmux" },
 			}),
