@@ -18,6 +18,14 @@ require("bhuvnesh.lazy_init")
 -- DO.not
 -- DO NOT INCLUDE THIS
 
+vim.o.pumheight = 10
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+
 -- If i want to keep doing lsp debugging
 -- function restart_htmx_lsp()
 --     require("lsp-debug-tools").restart({ expected = {}, name = "htmx-lsp", cmd = { "htmx-lsp", "--level", "DEBUG" }, root_dir = vim.loop.cwd(), });
