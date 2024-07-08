@@ -1,16 +1,52 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
-	config = function()
-		require("rose-pine").setup({
-			disable_background = true,
-			styles = {
-				italic = false,
-			},
-		})
-		vim.cmd("colorscheme rose-pine")
-	end,
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require('rose-pine').setup {
+            variant = 'moon',
+            disable_background = true,
+            disable_float_background = false,
+            styles = {
+                italic = false,
+                transparency = false,
+            },
+            highlight_groups = {
+                TreesitterContext = { bg = 'NONE' },
+                TreesitterContextLineNumber = { bg = 'NONE' },
+            },
+        }
+        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+        vim.cmd.colorscheme 'rose-pine'
+    end,
 }
+
+-- return {
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
+-- 	config = function()
+-- 		require("rose-pine").setup({
+-- 			disable_background = true,
+-- 			styles = {
+-- 				-- transparency = true,
+-- 				italic = false,
+-- 			},
+--         highlight_groups = {
+--             TreesitterContext = { bg = 'NONE' },
+--             TreesitterContextLineNumber = { bg = 'NONE' },
+--     }
+-- 		})
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 		vim.cmd("colorscheme rose-pine")
+-- 	end,
+-- }
 -- return {
 -- 	"folke/tokyonight.nvim",
 -- 	config = function()

@@ -224,9 +224,10 @@ return {
 			experimental = {
 				ghost_text = true,
 			},
-			completion = {
-				completeopt = "menu,menuone,noinsert",
-			},
+    -- Un comment to auto select the first item in Autocompletion
+			-- completion = {
+			-- 	completeopt = "menu,menuone,noinsert",
+			-- },
 			window = {
 				-- completion = cmp.config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
@@ -241,7 +242,7 @@ return {
 				["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Autocompletion on Tab
 				["<CR>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
+					select = false, --Set true to make enter key select the first Autocompletion
 				}),
 			}),
 			formatting = {
