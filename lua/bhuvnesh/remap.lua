@@ -13,10 +13,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 --vim.api.nvim_set_keymap("n", "<Leader>n", ":Neotree toggle<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>vwm", function()
-	require("vim-with-me").StartVimWithMe()
+    require("vim-with-me").StartVimWithMe()
 end)
 vim.keymap.set("n", "<leader>svwm", function()
-	require("vim-with-me").StopVimWithMe()
+    require("vim-with-me").StopVimWithMe()
 end)
 -- Yank to system clipboard in normal mode
 vim.api.nvim_set_keymap("n", "y", '"+y', { noremap = true, silent = true })
@@ -54,8 +54,8 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 --Substitute in selected area
-vim.keymap.set("v", "<C-s>", [[:s/\(\w.*\)/]])
-vim.keymap.set("x", "<leader>r", [[:s/\V\%V\(\w\+\)/]])
+-- vim.keymap.set("v", "<C-s>", [[:s/\(\w.*\)/]])
+-- vim.keymap.set("x", "<leader>r", [[:s/\V\%V\(\w\+\)/]])
 
 --Substitute throught out the file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
