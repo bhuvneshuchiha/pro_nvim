@@ -1,30 +1,30 @@
-return {
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require('rose-pine').setup {
-            variant = 'moon',
-            disable_background = true,
-            disable_float_background = false,
-            styles = {
-                italic = false,
-                transparency = false,
-            },
-            highlight_groups = {
-                TreesitterContext = { bg = 'NONE' },
-                TreesitterContextLineNumber = { bg = 'NONE' },
-                Cursor = { fg = "none", bg = "none" }, --cursor transparency
-            },
-        }
-        -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-        vim.cmd.colorscheme 'rose-pine'
-    end,
-}
+-- return {
+--     'rose-pine/neovim',
+--     name = 'rose-pine',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require('rose-pine').setup {
+--             variant = 'moon',
+--             disable_background = true,
+--             disable_float_background = false,
+--             styles = {
+--                 italic = false,
+--                 transparency = false,
+--             },
+--             highlight_groups = {
+--                 TreesitterContext = { bg = 'NONE' },
+--                 TreesitterContextLineNumber = { bg = 'NONE' },
+--                 Cursor = { fg = "none", bg = "none" }, --cursor transparency
+--             },
+--         }
+--         -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--         -- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+--         -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--         -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--         vim.cmd.colorscheme 'rose-pine'
+--     end,
+-- }
 
 -- return {
 -- 	"rose-pine/neovim",
@@ -98,46 +98,46 @@ return {
 --  	end,
 --  }
 
--- return {
--- 	"ellisonleao/gruvbox.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		require("gruvbox").setup({
--- 			terminal_colors = true, -- add neovim terminal colors
--- 			undercurl = false,
--- 			underline = false,
--- 			bold = true,
--- 			italic = {
--- 				strings = false,
--- 				emphasis = false,
--- 				comments = false,
--- 				operators = false,
--- 				folds = false,
--- 			},
--- 			strikethrough = true,
--- 			invert_selection = false,
--- 			invert_signs = false,
--- 			invert_tabline = false,
--- 			invert_intend_guides = false,
--- 			inverse = true, -- invert background for search, diffs, statuslines and errors
--- 			contrast = "hard", -- can be "hard", "soft" or empty string
--- 			palette_overrides = {},
--- 			overrides = {
--- 				SignColumn = {},
--- 				-- ColorColumn = { bg = "#B7B644" },
--- 				-- LineNr = { fg = "#B7B644" },
--- 				-- statusline = { bg = "#302F2D" },
--- 			},
--- 			dim_inactive = false,
--- 			transparent_mode = false,
--- 		})
---
--- 		vim.o.background = "dark" -- or "light" for light mode
---
--- 		vim.cmd("colorscheme gruvbox")
--- 		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- 	end,
--- }
+return {
+	"ellisonleao/gruvbox.nvim",
+	priority = 1000,
+	config = function()
+		require("gruvbox").setup({
+			terminal_colors = true, -- add neovim terminal colors
+			undercurl = false,
+			underline = false,
+			bold = true,
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+			strikethrough = true,
+			invert_selection = false,
+			invert_signs = false,
+			invert_tabline = false,
+			invert_intend_guides = false,
+			inverse = true, -- invert background for search, diffs, statuslines and errors
+			contrast = "hard", -- can be "hard", "soft" or empty string
+			palette_overrides = {},
+			overrides = {
+				SignColumn = {},
+				-- ColorColumn = { bg = "#B7B644" },
+				-- LineNr = { fg = "#B7B644" },
+				-- statusline = { bg = "#302F2D" },
+			},
+			dim_inactive = false,
+			transparent_mode = false,
+		})
+
+		vim.o.background = "dark" -- or "light" for light mode
+
+		vim.cmd("colorscheme gruvbox")
+		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+	end,
+}
 
 -- return {
 -- 	"folke/tokyonight.nvim",

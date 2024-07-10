@@ -17,6 +17,7 @@ require("bhuvnesh.lazy_init")
 
 vim.o.pumheight = 10 --:NOTE:To prevent autocomplete menu large height
 
+vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "Float", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
