@@ -15,12 +15,13 @@ return {
             highlight_groups = {
                 TreesitterContext = { bg = 'NONE' },
                 TreesitterContextLineNumber = { bg = 'NONE' },
+                Cursor = { fg = "none", bg = "none" }, --cursor transparency
             },
         }
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "Float", { bg = "none" })
-        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-        vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+        -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        -- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+        -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
         vim.cmd.colorscheme 'rose-pine'
     end,
 }
@@ -51,51 +52,51 @@ return {
 -- 	"folke/tokyonight.nvim",
 -- 	config = function()
 -- 		require("tokyonight").setup({
--- 			-- your configuration comes here
--- 			-- or leave it empty to use the default settings
--- 			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
--- 			transparent = true, -- Enable this to disable setting the background color
--- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
--- 			styles = {
--- 				-- Style to be applied to different syntax groups
--- 				-- Value is any valid attr-list value for `:help nvim_set_hl`
--- 				comments = { italic = false },
--- 				keywords = { italic = false },
--- 				-- Background styles. Can be "dark", "transparent" or "normal"
--- 				sidebars = "dark", -- style for sidebars, see below
--- 				floats = "dark", -- style for floating windows
--- 			},
+--             -- your configuration comes here
+--             -- or leave it empty to use the default settings
+--             style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+--             transparent = true, -- Enable this to disable setting the background color
+--             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+--             styles = {
+--                 -- Style to be applied to different syntax groups
+--                 -- Value is any valid attr-list value for `:help nvim_set_hl`
+--                 comments = { italic = false },
+--                 keywords = { italic = false },
+--                 -- Background styles. Can be "dark", "transparent" or "normal"
+--                 sidebars = "dark", -- style for sidebars, see below
+--                 floats = "transparent", -- style for floating windows
+--             },
 -- 		})
 -- 		vim.cmd("colorscheme tokyonight")
 -- 	end,
 -- }
 
---return {
--- 	"folke/tokyonight.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		-- local transparent = false -- set to true if you would like to enable transparency
+-- return {
+--  	"folke/tokyonight.nvim",
+--  	priority = 1000,
+--  	config = function()
+--  		-- local transparent = false -- set to true if you would like to enable transparency
 --
--- 		require("tokyonight").setup({
--- 			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
--- 			light_style = "day", -- The theme is used when the background is set to light
--- 			transparent = true, -- Enable this to disable setting the background color
--- 			-- disable_background = true,
--- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
--- 			styles = {
--- 				comments = { italic = false },
--- 				keywords = { italic = false },
--- 				functions = {},
--- 				variables = {},
--- 				-- Background styles. Can be "dark", "transparent" or "normal"
--- 				sidebars = "dark", -- style for sidebars, see below
--- 				floats = "dark", -- style for floating windows
--- 			},
--- 		})
--- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- 		vim.cmd("colorscheme tokyonight")
--- 	end,
--- }
+--  		require("tokyonight").setup({
+--  			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+--  			light_style = "day", -- The theme is used when the background is set to light
+--  			transparent = false, -- Enable this to disable setting the background color
+--  			-- disable_background = true,
+--  			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+--  			styles = {
+--  				comments = { italic = false },
+--  				keywords = { italic = false },
+--  				functions = {},
+--  				variables = {},
+--  				-- Background styles. Can be "dark", "transparent" or "normal"
+--  				sidebars = "dark", -- style for sidebars, see below
+--  				floats = "transparent", -- style for floating windows
+--  			},
+--  		})
+--  		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--  		vim.cmd("colorscheme tokyonight")
+--  	end,
+--  }
 
 -- return {
 -- 	"ellisonleao/gruvbox.nvim",
@@ -134,7 +135,7 @@ return {
 -- 		vim.o.background = "dark" -- or "light" for light mode
 --
 -- 		vim.cmd("colorscheme gruvbox")
--- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 -- 	end,
 -- }
 

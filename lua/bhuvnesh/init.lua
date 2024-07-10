@@ -14,11 +14,8 @@ vim.opt.guicursor = "n-v-i-c:block-Cursor"
 require("bhuvnesh.set")
 require("bhuvnesh.remap")
 require("bhuvnesh.lazy_init")
--- Define a function to check the filetype and run gcc if cpp
--- DO.not
--- DO NOT INCLUDE THIS
 
-vim.o.pumheight = 10
+vim.o.pumheight = 10 --:NOTE:To prevent autocomplete menu large height
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "Float", { bg = "none" })
