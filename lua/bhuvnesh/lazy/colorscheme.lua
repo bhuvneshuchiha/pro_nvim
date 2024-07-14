@@ -15,6 +15,8 @@
 --             highlight_groups = {
 --                 TreesitterContext = { bg = 'NONE' },
 --                 TreesitterContextLineNumber = { bg = 'NONE' },
+--                 --Dont use any theme for alacritty if you want this cursor
+--                 --color to work.
 --                 Cursor = { fg = "none", bg = "none" }, --cursor transparency
 --             },
 --         }
@@ -48,29 +50,31 @@
 -- 		vim.cmd("colorscheme rose-pine")
 -- 	end,
 -- }
--- return {
--- 	"folke/tokyonight.nvim",
--- 	config = function()
--- 		require("tokyonight").setup({
---             -- your configuration comes here
---             -- or leave it empty to use the default settings
---             style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
---             transparent = true, -- Enable this to disable setting the background color
---             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
---             styles = {
---                 -- Style to be applied to different syntax groups
---                 -- Value is any valid attr-list value for `:help nvim_set_hl`
---                 comments = { italic = false },
---                 keywords = { italic = false },
---                 -- Background styles. Can be "dark", "transparent" or "normal"
---                 sidebars = "dark", -- style for sidebars, see below
---                 floats = "transparent", -- style for floating windows
---             },
--- 		})
--- 		vim.cmd("colorscheme tokyonight")
--- 	end,
--- }
 
+
+return {
+	"folke/tokyonight.nvim",
+	config = function()
+		require("tokyonight").setup({
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+            transparent = false, -- Enable this to disable setting the background color
+            terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+            styles = {
+                -- Style to be applied to different syntax groups
+                -- Value is any valid attr-list value for `:help nvim_set_hl`
+                comments = { italic = false },
+                keywords = { italic = false },
+                -- Background styles. Can be "dark", "transparent" or "normal"
+                sidebars = "dark", -- style for sidebars, see below
+                floats = "dark", -- style for floating windows
+            },
+		})
+		vim.cmd("colorscheme tokyonight")
+	end,
+}
+--
 -- return {
 --  	"folke/tokyonight.nvim",
 --  	priority = 1000,
@@ -98,46 +102,46 @@
 --  	end,
 --  }
 
-return {
-	"ellisonleao/gruvbox.nvim",
-	priority = 1000,
-	config = function()
-		require("gruvbox").setup({
-			terminal_colors = true, -- add neovim terminal colors
-			undercurl = false,
-			underline = false,
-			bold = true,
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-			strikethrough = true,
-			invert_selection = false,
-			invert_signs = false,
-			invert_tabline = false,
-			invert_intend_guides = false,
-			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "hard", -- can be "hard", "soft" or empty string
-			palette_overrides = {},
-			overrides = {
-				SignColumn = {},
-				-- ColorColumn = { bg = "#B7B644" },
-				-- LineNr = { fg = "#B7B644" },
-				-- statusline = { bg = "#302F2D" },
-			},
-			dim_inactive = false,
-			transparent_mode = false,
-		})
-
-		vim.o.background = "dark" -- or "light" for light mode
-
-		vim.cmd("colorscheme gruvbox")
-		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-	end,
-}
+-- return {
+-- 	"ellisonleao/gruvbox.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("gruvbox").setup({
+-- 			terminal_colors = true, -- add neovim terminal colors
+-- 			undercurl = false,
+-- 			underline = false,
+-- 			bold = true,
+-- 			italic = {
+-- 				strings = false,
+-- 				emphasis = false,
+-- 				comments = false,
+-- 				operators = false,
+-- 				folds = false,
+-- 			},
+-- 			strikethrough = true,
+-- 			invert_selection = false,
+-- 			invert_signs = false,
+-- 			invert_tabline = false,
+-- 			invert_intend_guides = false,
+-- 			inverse = true, -- invert background for search, diffs, statuslines and errors
+-- 			contrast = "hard", -- can be "hard", "soft" or empty string
+-- 			palette_overrides = {},
+-- 			overrides = {
+-- 				SignColumn = {},
+-- 				-- ColorColumn = { bg = "#B7B644" },
+-- 				-- LineNr = { fg = "#B7B644" },
+-- 				-- statusline = { bg = "#302F2D" },
+-- 			},
+-- 			dim_inactive = false,
+-- 			transparent_mode = true,
+-- 		})
+--
+-- 		vim.o.background = "dark" -- or "light" for light mode
+--
+-- 		vim.cmd("colorscheme gruvbox")
+-- 		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 	end,
+-- }
 
 -- return {
 -- 	"folke/tokyonight.nvim",

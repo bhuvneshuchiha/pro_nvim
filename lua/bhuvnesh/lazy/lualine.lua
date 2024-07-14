@@ -55,14 +55,15 @@ return {
 	-- 	-- configure lualine with modified theme
 	-- 	lualine.setup({
 	-- 		options = {
-	-- 			theme = my_lualine_theme, --Uncomment this to get the fancy lualine back.
+	-- 			theme = my_lualine_theme -- this to get the fancy lualine back.
 	-- 		},
 	-- 		sections = {
 	-- 			lualine_x = {
 	-- 				{
-	-- 					lazy_status.updates,
-	-- 					cond = lazy_status.has_updates,
-	-- 					color = { fg = "#ff9e64" },
+	--            "filetype",
+	-- 					-- lazy_status.updates,
+	-- 					-- cond = lazy_status.has_updates,
+	-- 					-- color = { fg = "#ff9e64" },
 	-- 				},
 	-- 				-- {
 	-- 				-- uncomment below 3 lines to use noice
@@ -78,7 +79,13 @@ return {
 	-- 			--
 	-- 			lualine_a = {
 	-- 				{ "mode", icon = "" },
+	-- 				-- { "mode", icon = "" },
 	-- 			},
+	--
+	--        lualine_b = {
+	--            "branch"
+	--        },
+	--
 	-- 			lualine_c = {
 	-- 				{
 	-- 					"filename",
