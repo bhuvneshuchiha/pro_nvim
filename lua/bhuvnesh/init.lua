@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.updatetime = 50
-
+--
 --NOTE:Below two line disable netrw flash.
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
-
+--
 -- Set the sign column to a fixed width of 2
 vim.o.signcolumn = "yes"
 
@@ -15,8 +15,8 @@ require("bhuvnesh.set")
 require("bhuvnesh.remap")
 require("bhuvnesh.lazy_init")
 
-vim.o.pumheight = 10 --:NOTE:To prevent autocomplete menu large height
-
+-- vim.o.pumheight = 10 --:NOTE:To prevent autocomplete menu large height
+--
 vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "Float", { bg = "none" })
@@ -82,6 +82,7 @@ vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.colorcolumn = "75" --- colorcolumn (disable to remove colorcolumn)
+vim.opt.isfname:append("@-@")
 
 --Gives better highlight for gruvbox theme, comment out below 2 lines
 --while using other themes.
@@ -99,16 +100,17 @@ vim.opt.smartindent = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.backup = false
-
-vim.opt.showcmd = true -- vim.opt this to true for status line
-vim.opt.cmdheight = 1 -- vim.opt to 1 if you want to see primagen like status line, plus comment out
+--
+--UNCOMMENT IF ANYTHING IN STATUS LINE BREAKS
+-- vim.opt.showcmd = true -- vim.opt this to true for status line
+-- vim.opt.cmdheight = 1 -- vim.opt to 1 if you want to see primagen like status line, plus comment out
 --some code in noice, lua and nvim-notify.
-vim.opt.laststatus = 2 -- vim.opt this to 1 as well for status line.
+-- vim.opt.laststatus = 2 -- vim.opt this to 1 as well for status line.
 
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 8
 vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 vim.opt.smarttab = true
@@ -122,11 +124,11 @@ vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 vim.opt.showmode = true -- need to vim.opt it true to show commands in status line like prime.
-
--- Add asterisks in block comments
+--
+-- -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
 vim.opt.statusline = [[%<%F %h%m%r %y %=%{v:register} %-14.(%l,%c%V%) %p%%]] -- for the status line
--- vim.api.nvim_set_keymap("n", "<leader>e", ":Lexplore<CR>", { noremap = true, silent = true }) --netrw binding.
+-- -- vim.api.nvim_set_keymap("n", "<leader>e", ":Lexplore<CR>", { noremap = true, silent = true }) --netrw binding.
 
 -- IMPORTANT **RestoreCursorPosition**
 function RestoreCursorPosition()
