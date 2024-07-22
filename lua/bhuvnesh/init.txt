@@ -19,11 +19,11 @@ require("bhuvnesh.lazy_init")
 vim.o.pumheight = 10 --:NOTE:To prevent autocomplete menu large height
 --
 vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
 
 -- If i want to keep doing lsp debugging
 -- function restart_htmx_lsp()
@@ -129,7 +129,7 @@ vim.opt.wrap = false
 -- vim.opt.showmode = true -- need to vim.opt it true to show commands in status line like prime.
 --
 -- -- Add asterisks in block comments
--- vim.opt.formatoptions:append({ "r" })
+vim.opt.formatoptions:append({ "r" })
 --Uncomment below line to get full file path
 -- vim.opt.statusline = [[%<%F %h%m%r %y %=%{v:register} %-14.(%l,%c%V%) %p%%]] -- for the status line
 -- -- vim.api.nvim_set_keymap("n", "<leader>e", ":Lexplore<CR>", { noremap = true, silent = true }) --netrw binding.
@@ -190,3 +190,4 @@ autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+
