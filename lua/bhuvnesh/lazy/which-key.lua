@@ -1,6 +1,7 @@
 return {
 	{
 		"folke/which-key.nvim",
+    "echasnovski/mini.icons",
 		event = "VeryLazy",
 		opts = {
 			plugins = { spelling = true },
