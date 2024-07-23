@@ -6,15 +6,15 @@ return {
     config = function()
         require('rose-pine').setup {
             variant = 'moon',
-            disable_background = true,
-            disable_float_background = false,
+            -- disable_background = true,
+            -- disable_float_background = false,
             styles = {
                 italic = false,
                 transparency = true,
             },
             highlight_groups = {
-                -- TreesitterContext = { bg = 'NONE' },
-                -- TreesitterContextLineNumber = { bg = 'NONE' },
+                TreesitterContext = { bg = 'text' },
+                TreesitterContextLineNumber = { bg = 'NONE' },
                 --Dont use any theme for alacritty if you want this cursor
                 --color to work.
                 Cursor = { fg = "none", bg = "none" }, --cursor transparency
@@ -24,13 +24,32 @@ return {
                 -- PmenuSel = {fg = "#e0def4", bg = "#393552"},
             },
         }
-        -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
         vim.cmd.colorscheme 'rose-pine'
     end,
 }
+
+-- return{
+--     {
+--     "sainnhe/gruvbox-material",
+--     enabled = true,
+--     priority = 1000,
+--     config = function()
+--       vim.g.gruvbox_material_transparent_background =1
+--       vim.g.gruvbox_material_foreground = "mix"
+--       vim.g.gruvbox_material_background = "hard"    -- soft, medium, hard
+--       vim.g.gruvbox_material_ui_contrast = "high"   -- The contrast of line numbers, indent lines, etc.
+--       vim.g.gruvbox_material_float_style = "bright" -- Background of floating windows
+--       vim.g.gruvbox_material_statusline_style = "material"
+--       vim.g.gruvbox_material_cursor = "auto"
+--
+--       -- vim.g.gruvbox_material_colors_override = { bg0 = '#000000' } -- #0e1010
+--       -- vim.g.gruvbox_material_colors_override = { bg0 = "#121212" }
+--       -- vim.g.gruvbox_material_better_performance = 1
+--
+--       vim.cmd.colorscheme("gruvbox-material")
+--     end,
+--   },
+-- }
 
 -- return {
 -- 	"rose-pine/neovim",
@@ -62,8 +81,8 @@ return {
 -- 		require("tokyonight").setup({
 --             -- your configuration comes here
 --             -- or leave it empty to use the default settings
---             style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
---             transparent = false, -- Enable this to disable setting the background color
+--             style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+--             transparent = true, -- Enable this to disable setting the background color
 --             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
 --             styles = {
 --                 -- Style to be applied to different syntax groups
@@ -72,7 +91,9 @@ return {
 --                 keywords = { italic = false },
 --                 -- Background styles. Can be "dark", "transparent" or "normal"
 --                 sidebars = "dark", -- style for sidebars, see below
---                 floats = "dark", -- style for floating windows
+--                 floats = "transparent", -- style for floating windows
+--                 Pmenu = {fg = "subtle", bg = "surface"},
+--                 PmenuSel = {fg = "text", bg = "overlay"},
 --             },
 -- 		})
 -- 		vim.cmd("colorscheme tokyonight")

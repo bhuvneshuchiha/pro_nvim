@@ -14,8 +14,8 @@ return {
 	-- 		yellow = "#FFDA7B",
 	-- 		red = "#FF4A4A",
 	-- 		fg = "#c3ccdc",
-	-- 		--bg = "#112638", -- go back to default lualine color
-	-- 		bg = "#000000",
+	-- 		bg = "#112638", -- go back to default lualine color
+	-- 		-- bg = "#000000",
 	-- 		inactive_bg = "#2c3043",
 	-- 	}
 	-- 	-- Uncomment the below theme to activate the theme for lualine
@@ -55,7 +55,11 @@ return {
 	-- 	-- configure lualine with modified theme
 	-- 	lualine.setup({
 	-- 		options = {
-	-- 			theme = "tokyonight"-- this to get the fancy lualine back.
+	-- 			theme =my_lualine_theme,-- this to get the fancy lualine back.
+	-- 						section_separators = {
+	-- 					left = "",
+	-- 					right = "",
+	-- 				},
 	-- 		},
 	-- 		sections = {
 	-- 			lualine_x = {

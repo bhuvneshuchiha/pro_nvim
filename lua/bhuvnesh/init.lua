@@ -23,7 +23,7 @@ vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
 -- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
 
 -- If i want to keep doing lsp debugging
 -- function restart_htmx_lsp()
@@ -78,10 +78,10 @@ o.smartindent = true
 o.tabstop = 2
 o.shiftwidth = 4
 
--- vim.opt.list = false
--- vim.scriptencoding = "utf-8"
--- vim.opt.encoding = "utf-8"
--- vim.opt.fileencoding = "utf-8"
+vim.opt.list = false
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 vim.opt.colorcolumn = "75" --- colorcolumn (disable to remove colorcolumn)
 vim.opt.isfname:append("@-@")
 
@@ -95,19 +95,18 @@ vim.opt.isfname:append("@-@")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
--- vim.opt.title = true
--- vim.opt.autoindent = true
+vim.opt.title = true
+vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.backup = false
 --
 --UNCOMMENT IF ANYTHING IN STATUS LINE BREAKS
--- vim.opt.showcmd = true -- vim.opt this to true for status line
--- vim.opt.cmdheight = 1 -- vim.opt to 1 if you want to see primagen like status line, plus comment out
---some code in noice, lua and nvim-notify.
--- vim.opt.laststatus = 2 -- vim.opt this to 1 as well for status line.
-
+vim.opt.showcmd = true -- vim.opt this to true for status line
+vim.opt.cmdheight = 1 -- vim.opt to 1 if you want to see primagen like status line, plus comment out
+-- some code in noice, lua and nvim-notify.
+vim.opt.laststatus = 2 -- vim.opt this to 1 as well for status line.
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
@@ -119,14 +118,14 @@ vim.opt.breakindent = true
 vim.opt.wrap = false
 
 -- Uncomment line 122 - 130
--- vim.opt.backspace = { "start", "eol", "indent" }
--- vim.opt.path:append({ "**" })
--- vim.opt.wildignore:append({ "*/node_modules/*" })
--- vim.opt.splitbelow = true
--- vim.opt.splitright = true
--- vim.opt.splitkeep = "cursor"
--- vim.opt.mouse = ""
--- vim.opt.showmode = true -- need to vim.opt it true to show commands in status line like prime.
+vim.opt.backspace = { "start", "eol", "indent" }
+vim.opt.path:append({ "**" })
+vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitkeep = "cursor"
+vim.opt.mouse = ""
+vim.opt.showmode = true -- need to vim.opt it true to show commands in status line like prime.
 --
 -- -- Add asterisks in block comments
 -- vim.opt.formatoptions:append({ "r" })
