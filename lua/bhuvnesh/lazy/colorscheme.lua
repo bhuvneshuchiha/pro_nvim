@@ -22,6 +22,7 @@ return {
                 PmenuSel = {fg = "text", bg = "overlay"},
                 -- Pmenu = {fg = "#908caa", bg = "#2a273f"},
                 -- PmenuSel = {fg = "#e0def4", bg = "#393552"},
+                StatusLine= { fg = "subtle", bg = "surface" }
             },
         }
         vim.cmd.colorscheme 'rose-pine'
