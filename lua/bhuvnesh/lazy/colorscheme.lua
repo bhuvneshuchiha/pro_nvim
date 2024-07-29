@@ -1,4 +1,5 @@
 return {
+    {
     'rose-pine/neovim',
     name = 'rose-pine',
     lazy = false,
@@ -13,8 +14,8 @@ return {
                 transparency = true,
             },
             highlight_groups = {
-                TreesitterContext = { bg = 'text' },
-                TreesitterContextLineNumber = { bg = 'NONE' },
+                -- TreesitterContext = { bg = 'text' },
+                -- TreesitterContextLineNumber = { bg = 'NONE' },
                 --Dont use any theme for alacritty if you want this cursor
                 --color to work.
                 Cursor = { fg = "none", bg = "none" }, --cursor transparency
@@ -27,20 +28,20 @@ return {
         }
         vim.cmd.colorscheme 'rose-pine'
     end,
-}
+},
 
--- return{
+-- {
 --     {
 --     "sainnhe/gruvbox-material",
 --     enabled = true,
 --     priority = 1000,
 --     config = function()
---       vim.g.gruvbox_material_transparent_background =1
+--       vim.g.gruvbox_material_transparent_background =0
 --       vim.g.gruvbox_material_foreground = "mix"
 --       vim.g.gruvbox_material_background = "hard"    -- soft, medium, hard
---       vim.g.gruvbox_material_ui_contrast = "high"   -- The contrast of line numbers, indent lines, etc.
+--       vim.g.gruvbox_material_ui_contrast = "low"   -- The contrast of line numbers, indent lines, etc.
 --       vim.g.gruvbox_material_float_style = "bright" -- Background of floating windows
---       vim.g.gruvbox_material_statusline_style = "material"
+--       -- vim.g.gruvbox_material_statusline_style = "material"
 --       vim.g.gruvbox_material_cursor = "auto"
 --
 --       -- vim.g.gruvbox_material_colors_override = { bg0 = '#000000' } -- #0e1010
@@ -50,9 +51,9 @@ return {
 --       vim.cmd.colorscheme("gruvbox-material")
 --     end,
 --   },
--- }
+-- },
 
--- return {
+-- {
 -- 	"rose-pine/neovim",
 -- 	name = "rose-pine",
 -- 	config = function()
@@ -73,18 +74,32 @@ return {
 -- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 -- 		vim.cmd("colorscheme rose-pine")
 -- 	end,
--- }
+-- },
 
-
--- return {
+--For tokyonight night
+-- {
+-- 	"folke/tokyonight.nvim",
+-- 	config = function()
+-- 		require("tokyonight").setup({
+--             style = "night",
+--             styles = {
+--                 functions = {}
+--                 },
+--             lualine_bold = true,
+-- 		})
+--         vim.cmd("colorscheme tokyonight")
+--         end,
+--     },
+--
+-- {
 -- 	"folke/tokyonight.nvim",
 -- 	config = function()
 -- 		require("tokyonight").setup({
 --             -- your configuration comes here
 --             -- or leave it empty to use the default settings
 --             style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
---             transparent = true, -- Enable this to disable setting the background color
---             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+--             -- transparent = false, -- Enable this to disable setting the background color
+--             -- terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
 --             styles = {
 --                 -- Style to be applied to different syntax groups
 --                 -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -92,26 +107,25 @@ return {
 --                 keywords = { italic = false },
 --                 -- Background styles. Can be "dark", "transparent" or "normal"
 --                 sidebars = "dark", -- style for sidebars, see below
---                 floats = "transparent", -- style for floating windows
---                 Pmenu = {fg = "subtle", bg = "surface"},
---                 PmenuSel = {fg = "text", bg = "overlay"},
+--                 floats = "dark", -- style for floating windows
 --             },
+--             lualine_bold = true,
 -- 		})
--- 		vim.cmd("colorscheme tokyonight")
--- 	end,
--- }
+--         vim.cmd("colorscheme tokyonight")
 --
--- return {
+--         -- vim.cmd("highlight Normal guibg=#1a1b26")
+-- 	end,
+-- },
+
+-- {
 --  	"folke/tokyonight.nvim",
 --  	priority = 1000,
 --  	config = function()
---  		-- local transparent = false -- set to true if you would like to enable transparency
 --
 --  		require("tokyonight").setup({
 --  			style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 --  			light_style = "day", -- The theme is used when the background is set to light
 --  			transparent = false, -- Enable this to disable setting the background color
---  			-- disable_background = true,
 --  			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
 --  			styles = {
 --  				comments = { italic = false },
@@ -120,15 +134,15 @@ return {
 --  				variables = {},
 --  				-- Background styles. Can be "dark", "transparent" or "normal"
 --  				sidebars = "dark", -- style for sidebars, see below
---  				floats = "transparent", -- style for floating windows
+--  				floats = "dark", -- style for floating windows
 --  			},
 --  		})
 --  		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
---  		vim.cmd("colorscheme tokyonight")
+--  		vim.cmd("colorscheme tokyonight-night")
 --  	end,
---  }
+--  },
 
--- return {
+-- {
 -- 	"ellisonleao/gruvbox.nvim",
 -- 	priority = 1000,
 -- 	config = function()
@@ -159,15 +173,15 @@ return {
 -- 				-- statusline = { bg = "#302F2D" },
 -- 			},
 -- 			dim_inactive = false,
--- 			transparent_mode = true,
+-- 			transparent_mode = false,
 -- 		})
 --
 -- 		vim.o.background = "dark" -- or "light" for light mode
 --
 -- 		vim.cmd("colorscheme gruvbox")
--- 		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 -- 	end,
--- }
+-- },
 
 -- return {
 -- 	"folke/tokyonight.nvim",
@@ -214,7 +228,7 @@ return {
 -- 		vim.cmd("colorscheme tokyonight")
 -- 	end,
 -- }
--- return {
+-- {
 -- 	"sainnhe/sonokai",
 -- 	priority = 1000,
 -- 	config = function()
@@ -227,9 +241,9 @@ return {
 -- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 -- 	end,
--- }
-
--- return {
+-- },
+--
+-- {
 -- 	"catppuccin/nvim",
 -- 	name = "catppuccin",
 -- 	priority = 1000,
@@ -242,7 +256,7 @@ return {
 -- 		catppuccin.setup({
 -- 			flavour = "mocha",
 -- 			compile = { enabled = true, path = vim.fn.stdpath("cache") .. "/catppuccin" },
--- 			transparent_background = true,
+-- 			transparent_background = false,
 -- 			term_colors = false,
 -- 			integrations = {
 -- 				aerial = false,
@@ -281,11 +295,10 @@ return {
 --
 -- 		vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 -- 		vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
---
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 		-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- 	end,
--- }
+-- },
 
 -- function ColorMyPencils(color)
 -- 	color = color or "rose-pine"
@@ -359,3 +372,4 @@ return {
 --     vim.cmd("colorscheme ayu_dark") -- El colorscheme a utilizar
 --   end,
 -- }
+}

@@ -1,4 +1,4 @@
---Go the file after gs and then press dv on the file to go to diff mode.
+--Go to the file after gs and then press dv on the file to go to diff mode.
 return {
 	"tpope/vim-fugitive",
 	config = function()

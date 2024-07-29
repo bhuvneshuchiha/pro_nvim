@@ -23,21 +23,33 @@ return {
 	--event = "VeryLazy",
 	lazy = false, -- To do fast loading to prevent netrw flash.
 	keys = {
-		{ "<leader>e", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
-		{ "<leader><tab>", ":Neotree toggle left<CR>", silent = true, desc = "Left File Explorer" },
+		{ "<leader><tab>", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
+		{ "<leader>e", ":Neotree toggle left<CR>", silent = true, desc = "Left File Explorer" },
 	},
 	config = function()
 		require("neo-tree").setup({
 			close_if_last_window = true,
-			popup_border_style = "single",
+			popup_border_style = "rounded",
 			enable_git_status = true,
 			enable_modified_markers = true,
 			enable_diagnostics = true,
 			sort_case_insensitive = true,
 			default_component_configs = {
 				indent = {
-					with_markers = true,
-					with_expanders = true,
+					-- with_markers = true,
+					-- with_expanders = true,
+            indent_size = 2,
+            padding = 1, -- extra padding on left hand side
+            -- indent guides
+            with_markers = true,
+            indent_marker = "│",
+            last_indent_marker = "└",
+            highlight = "NeoTreeIndentMarker",
+            -- expander config, needed for nesting files
+            with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+            expander_collapsed = "",
+            expander_expanded = "",
+            expander_highlight = "NeoTreeExpander",
 				},
 				modified = {
 					symbol = " ",
@@ -65,6 +77,7 @@ return {
 					},
 				},
 			},
+    --Where do you want the window to be when you hit vim .
 			window = {
 				position = "float",
 				width = 30,
