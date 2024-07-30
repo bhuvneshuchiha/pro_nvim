@@ -1,35 +1,42 @@
 return {
-    {
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    lazy = false,
-    priority = 1000,
-    config = function()
-        require('rose-pine').setup {
-            variant = 'moon',
-            -- disable_background = true,
-            -- disable_float_background = false,
-            styles = {
-                italic = false,
-                transparency = true,
-            },
-            highlight_groups = {
-                -- TreesitterContext = { bg = 'text' },
-                -- TreesitterContextLineNumber = { bg = 'NONE' },
-                --Dont use any theme for alacritty if you want this cursor
-                --color to work.
-                Cursor = { fg = "none", bg = "none" }, --cursor transparency
-                Pmenu = {fg = "subtle", bg = "surface"},
-                PmenuSel = {fg = "text", bg = "overlay"},
-                -- Pmenu = {fg = "#908caa", bg = "#2a273f"},
-                -- PmenuSel = {fg = "#e0def4", bg = "#393552"},
-                StatusLine= { fg = "subtle", bg = "surface" }
-            },
-        }
-        vim.cmd.colorscheme 'rose-pine'
-    end,
-},
-
+--     {
+--     'rose-pine/neovim',
+--     name = 'rose-pine',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require('rose-pine').setup {
+--             variant = 'moon',
+--             -- disable_background = true,
+--             -- disable_float_background = false,
+--             styles = {
+--                 italic = false,
+--                 transparency = true,
+--             },
+--             highlight_groups = {
+--                 -- TreesitterContext = { bg = 'text' },
+--                 -- TreesitterContextLineNumber = { bg = 'NONE' },
+--                 --Dont use any theme for alacritty if you want this cursor
+--                 --color to work.
+--                 Cursor = { fg = "none", bg = "none" }, --cursor transparency
+--                 Pmenu = {fg = "subtle", bg = "surface"},
+--                 PmenuSel = {fg = "text", bg = "overlay"},
+--                 -- Pmenu = {fg = "#908caa", bg = "#2a273f"},
+--                 -- PmenuSel = {fg = "#e0def4", bg = "#393552"},
+--                 StatusLine= { fg = "subtle", bg = "surface" }
+--             },
+--         }
+--         vim.cmd.colorscheme 'rose-pine'
+--     end,
+-- },
+-- {
+--   "tjdevries/colorbuddy.nvim",
+--     enabled = true,
+--     priority = 1000,
+--     config = function()
+--       vim.cmd.colorscheme("colorbuddy")
+--         end,
+-- },
 -- {
 --     {
 --     "sainnhe/gruvbox-material",
@@ -77,19 +84,19 @@ return {
 -- },
 
 --For tokyonight night
--- {
--- 	"folke/tokyonight.nvim",
--- 	config = function()
--- 		require("tokyonight").setup({
---             style = "night",
---             styles = {
---                 functions = {}
---                 },
---             lualine_bold = true,
--- 		})
---         vim.cmd("colorscheme tokyonight")
---         end,
---     },
+{
+    "folke/tokyonight.nvim",
+    config = function()
+        require("tokyonight").setup({
+            style = "night",
+            styles = {
+                functions = {}
+            },
+            lualine_bold = true,
+        })
+        vim.cmd("colorscheme tokyonight")
+    end,
+},
 --
 -- {
 -- 	"folke/tokyonight.nvim",
@@ -373,3 +380,4 @@ return {
 --   end,
 -- }
 }
+
