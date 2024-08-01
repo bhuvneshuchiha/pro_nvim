@@ -1,3 +1,14 @@
+
+--NOTE:Below two line disable netrw flash and these 2 lines need to be at the top
+--of this file.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+--NOTE:This is to enable netrw
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.updatetime = 50
@@ -5,9 +16,7 @@ vim.opt.updatetime = 50
 require("bhuvnesh.set")
 require("bhuvnesh.remap")
 require("bhuvnesh.lazy_init")
---NOTE:Below two line disable netrw flash.
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+
 --
 vim.opt.termguicolors = true
 
@@ -19,7 +28,7 @@ vim.opt.guicursor = "n-v-i-c:block-Cursor"
 
 
 -- vim.o.pumheight = 15 --:NOTE:To prevent autocomplete menu large height
---
+
 vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
@@ -70,10 +79,8 @@ autocmd({ "BufWritePre" }, {
 })
 
 
---NOTE:This is to enable netrw
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
+
+
 
 --Commented ----> :NOTE:
 -- local o = vim.o
