@@ -1,8 +1,7 @@
-
 --NOTE:Below two line disable netrw flash and these 2 lines need to be at the top
 --of this file.
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 --NOTE:This is to enable netrw
 vim.g.netrw_browse_split = 0
@@ -23,8 +22,8 @@ vim.opt.termguicolors = true
 -- Set the sign column to a fixed width of 2
 vim.o.signcolumn = "yes"
 
--- Increase the number column width to include padding
-vim.opt.guicursor = "n-v-i-c:block-Cursor"
+-- vim.opt.guicursor = "n-v-i-c:block-Cursor"
+
 
 
 -- vim.o.pumheight = 15 --:NOTE:To prevent autocomplete menu large height
@@ -77,6 +76,11 @@ autocmd({ "BufWritePre" }, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
+
+
+--To autoformat files using Neovim's native LSP.
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 
 

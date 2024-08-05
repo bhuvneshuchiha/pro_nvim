@@ -1,34 +1,34 @@
 return {
---     {
---     'rose-pine/neovim',
---     name = 'rose-pine',
---     lazy = false,
---     priority = 1000,
---     config = function()
---         require('rose-pine').setup {
---             variant = 'main',
---             -- disable_background = true,
---             -- disable_float_background = false,
---             styles = {
---                 italic = false,
---                 transparency = true,
---             },
---             highlight_groups = {
---                 -- TreesitterContext = { bg = 'text' },
---                 -- TreesitterContextLineNumber = { bg = 'NONE' },
---                 --Dont use any theme for alacritty if you want this cursor
---                 --color to work.
---                 Cursor = { fg = "none", bg = "none" }, --cursor transparency
---                 Pmenu = {fg = "subtle", bg = "surface"},
---                 PmenuSel = {fg = "text", bg = "overlay"},
---                 -- Pmenu = {fg = "#908caa", bg = "#2a273f"},
---                 -- PmenuSel = {fg = "#e0def4", bg = "#393552"},
---                 StatusLine= { fg = "subtle", bg = "surface" }
---             },
---         }
---         vim.cmd.colorscheme 'rose-pine'
---     end,
--- },
+    {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require('rose-pine').setup {
+            variant = 'moon',
+            -- disable_background = true,
+            -- disable_float_background = false,
+            styles = {
+                italic = false,
+                transparency = true,
+            },
+            highlight_groups = {
+                -- TreesitterContext = { bg = 'text' },
+                -- TreesitterContextLineNumber = { bg = 'NONE' },
+                --Dont use any theme for alacritty if you want this cursor
+                --color to work.
+                Cursor = { fg = "none", bg = "none" }, --cursor transparency
+                Pmenu = {fg = "subtle", bg = "surface"},
+                PmenuSel = {fg = "text", bg = "overlay"},
+                -- Pmenu = {fg = "#908caa", bg = "#2a273f"},
+                -- PmenuSel = {fg = "#e0def4", bg = "#393552"},
+                StatusLine= { fg = "subtle", bg = "surface" }
+            },
+        }
+        vim.cmd.colorscheme 'rose-pine'
+    end,
+},
 -- {
 --     {
 --     "sainnhe/gruvbox-material",
@@ -80,7 +80,7 @@ return {
 --     "folke/tokyonight.nvim",
 --     config = function()
 --         require("tokyonight").setup({
---             style = "moon",
+--             style = "night",
 --             styles = {
 --                 -- Style to be applied to different syntax groups
 --                 -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -90,7 +90,7 @@ return {
 --                 sidebars = "dark", -- style for sidebars, see below
 --                 floats = "dark", -- style for floating windows
 --             },
---             lualine_bold = true,
+--             lualine_bold = false,
 --         })
 --         vim.cmd("colorscheme tokyonight")
 --     end,
@@ -118,35 +118,35 @@ return {
 -- 		})
 --         vim.cmd("colorscheme tokyonight")
 --
---         -- vim.cmd("highlight Normal guibg=#1a1b26")
+--         vim.cmd("highlight Normal guibg=#1a1b26")
 -- 	end,
 -- },
 
-{
- 	"folke/tokyonight.nvim",
- 	priority = 1000,
- 	config = function()
-
- 		require("tokyonight").setup({
- 			style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
- 			-- light_style = "day", -- The theme is used when the background is set to light
- 			transparent = false, -- Enable this to disable setting the background color
- 			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
- 			styles = {
- 				comments = { italic = false },
- 				keywords = { italic = false ,bold = true},
- 				functions = {},
- 				variables = {},
- 				-- Background styles. Can be "dark", "transparent" or "normal"
- 				sidebars = "dark", -- style for sidebars, see below
- 				floats = "dark", -- style for floating windows
- 			},
-            lualine_bold = true,
- 		})
- 		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
- 		vim.cmd("colorscheme tokyonight-moon")
- 	end,
- },
+-- {
+--  	"folke/tokyonight.nvim",
+--  	priority = 1000,
+--  	config = function()
+--
+--  		require("tokyonight").setup({
+--  			style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+--  			-- light_style = "day", -- The theme is used when the background is set to light
+--  			transparent = false, -- Enable this to disable setting the background color
+--  			terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+--  			styles = {
+--  				comments = { italic = false },
+--  				keywords = { italic = false ,bold = false},
+--  				functions = {},
+--  				variables = {},
+--  				-- Background styles. Can be "dark", "transparent" or "normal"
+--  				sidebars = "dark", -- style for sidebars, see below
+--  				floats = "dark", -- style for floating windows
+--  			},
+--             lualine_bold = false,
+--  		})
+--  		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--  		vim.cmd("colorscheme tokyonight-storm")
+--  	end,
+--  },
 
 -- {
 -- 	"ellisonleao/gruvbox.nvim",
@@ -189,7 +189,7 @@ return {
 -- 	end,
 -- },
 
--- return {
+-- {
 -- 	"folke/tokyonight.nvim",
 -- 	priority = 1000,
 -- 	config = function()
@@ -262,7 +262,7 @@ return {
 -- 		catppuccin.setup({
 -- 			flavour = "mocha",
 -- 			compile = { enabled = true, path = vim.fn.stdpath("cache") .. "/catppuccin" },
--- 			transparent_background = false,
+-- 			transparent_background = true,
 -- 			term_colors = false,
 -- 			integrations = {
 -- 				aerial = false,
@@ -282,6 +282,20 @@ return {
 -- 				treesitter = true,
 -- 				which_key = true,
 -- 			},
+--                 styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+--                     comments = {}, -- Change the style of comments
+--                     conditionals = {},
+--                     loops = {},
+--                     functions = {},
+--                     keywords = {},
+--                     strings = {},
+--                     variables = {},
+--                     numbers = {},
+--                     booleans = {},
+--                     properties = {},
+--                     types = {},
+--                     operators = {},
+--                 },
 -- 			highlight_overrides = {
 -- 				mocha = {
 -- 					DiagnosticVirtualTextError = { bg = mocha.base, style = {} },
@@ -292,6 +306,8 @@ return {
 -- 					DiagnosticFloatingWarn = { bg = mocha.base, style = {} },
 -- 					DiagnosticFloatingInfo = { bg = mocha.base, style = {} },
 -- 					DiagnosticFloatingHint = { bg = mocha.base, style = {} },
+--                     Pmenu = { bg = mocha.surface0, fg = mocha.overlay1 },  -- Set a solid background for Pmenu
+-- 					PmenuSel = { bg = mocha.surface1, fg = mocha.text },
 -- 				},
 -- 			},
 -- 		})
@@ -299,6 +315,13 @@ return {
 -- 		-- vim.g.catppuccin_flavour = "macchiato"
 -- 		vim.cmd([[colorscheme catppuccin]])
 --
+--         -- local colors = {
+--         --     fg = "#cdd6f4", -- text color
+--         --     bg = "#1e1e2e", -- base color
+--         -- }
+--         --
+--         -- -- Set the StatusLine highlight group
+--         -- vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.fg, bg = colors.bg, ctermfg = 15, ctermbg = 0 })
 -- 		vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 -- 		vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
 -- 		-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

@@ -84,7 +84,7 @@ return {
 			},
 			filesystem = {
 				-- hijack_netrw_behavior = "open_current",
-				-- hijack_netrw_behavior = "disabled", -- Comment to use neo-tree as main file exp.
+				hijack_netrw_behavior = "disabled", -- Comment to use neo-tree as main file exp.
 				use_libuv_file_watcher = true,
 				filtered_items = {
 					hide_dotfiles = false,
