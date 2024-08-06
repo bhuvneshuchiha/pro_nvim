@@ -83,9 +83,11 @@ autocmd({ "BufWritePre" }, {
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 
+
+
 --Commented ----> :NOTE:
 -- local o = vim.o
--- -- o.cursorline = false
+-- o.cursorline = false
 -- o.expandtab = true
 -- o.smartindent = true
 -- o.tabstop = 2
@@ -119,8 +121,8 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 --
 --UNCOMMENT IF ANYTHING IN STATUS LINE BREAKS
 -- vim.opt.showcmd = true -- vim.opt this to true for status line
--- vim.opt.cmdheight = 1 -- vim.opt to 1 if you want to see primagen like status line, plus comment out
--- some code in noice, lua and nvim-notify.
+-- vim.opt.cmdheight = 1  -- vim.opt to 1 if you want to see primagen like status line, plus comment out
+-- -- some code in noice, lua and nvim-notify.
 -- vim.opt.laststatus = 2 -- vim.opt this to 1 as well for status line.
 -------------->>>Till here is commented. :NOTE:
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -139,9 +141,9 @@ vim.opt.undofile = true
 -- vim.opt.backspace = { "start", "eol", "indent" }
 -- vim.opt.path:append({ "**" })
 -- vim.opt.wildignore:append({ "*/node_modules/*" })
--- vim.opt.splitbelow = true
--- vim.opt.splitright = true
--- vim.opt.splitkeep = "cursor"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitkeep = "cursor"
 -- vim.opt.mouse = ""
 -- vim.opt.showmode = true -- need to vim.opt it true to show commands in status line like prime.
 --------------Till here commented. :NOTE:
