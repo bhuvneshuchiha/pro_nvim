@@ -78,4 +78,4 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
 
 --Remap for moving to the previous file
-vim.api.nvim_set_keymap('n', '<leader><leader>', '<C-^>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>\\', '<C-^>', { noremap = true, silent = true })
