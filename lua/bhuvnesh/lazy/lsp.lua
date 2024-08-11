@@ -258,7 +258,7 @@ return {
             }),
             formatting = {
                 format = function(entry, vim_item)
-                    vim_item.abbr = string.sub(vim_item.abbr, 1, 20)--To limit the autocompletion
+                    vim_item.abbr = string.sub(vim_item.abbr, 1, 20) --To limit the autocompletion
                     --width.
                     local lspkind_ok, lspkind = pcall(require, "lspkind")
                     if not lspkind_ok then
@@ -294,16 +294,16 @@ return {
             --         { name = 'buffer' },
             --     })
             sources = cmp.config.sources({
-            	-- { name = "nvim_lsp", max_item_count = 10 },
-            	-- { name = "luasnip", max_item_count = 10 }, -- For luasnip users.
-            	-- { name = "buffer", max_item_count = 10 },
-            	-- { name = "path", max_item_count = 10 },
-            	{ name = "nvim_lsp"},
-            	{ name = "luasnip"}, -- For luasnip users.
-            	{ name = "buffer"},
-            	{ name = "path"},
-            	-- { name = "treesitter" },
-            	-- { name = "tmux" },
+                -- { name = "nvim_lsp", max_item_count = 10 },
+                -- { name = "luasnip", max_item_count = 10 }, -- For luasnip users.
+                -- { name = "buffer", max_item_count = 10 },
+                -- { name = "path", max_item_count = 10 },
+                { name = "nvim_lsp" },
+                { name = "luasnip" }, -- For luasnip users.
+                { name = "buffer" },
+                { name = "path" },
+                -- { name = "treesitter" },
+                -- { name = "tmux" },
             }),
         })
 

@@ -39,3 +39,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+-- vim.opt.guicursor = {
+--     'n-v-c:block', -- Normal, Visual, and Command mode: block cursor
+--     'i:ver25',     -- Insert mode: vertical bar cursor (25% width)
+--     'r-cr:hor20',  -- Replace and Command-line replace mode: horizontal cursor (20% height)
+-- }

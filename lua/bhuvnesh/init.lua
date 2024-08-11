@@ -24,16 +24,16 @@ vim.o.signcolumn = "yes"
 
 -- vim.opt.guicursor = "n-v-i-c:block-Cursor"
 
-
-
 -- vim.o.pumheight = 15 --:NOTE:To prevent autocomplete menu large height
 
 vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })     -- Removes background from line numbers
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" }) -- Removes background from the sign column
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+
 
 -- If i want to keep doing lsp debugging
 -- function restart_htmx_lsp()
@@ -77,13 +77,9 @@ autocmd({ "BufWritePre" }, {
     command = [[%s/\s\+$//e]],
 })
 
-
+-- HACK:    TO FORMAT USING LSP
 --To autoformat files using Neovim's native LSP.
--- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
-
-
 
 --Commented ----> :NOTE:
 -- local o = vim.o
@@ -141,9 +137,9 @@ vim.opt.undofile = true
 -- vim.opt.backspace = { "start", "eol", "indent" }
 -- vim.opt.path:append({ "**" })
 -- vim.opt.wildignore:append({ "*/node_modules/*" })
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.splitkeep = "cursor"
+-- vim.opt.splitbelow = true
+-- vim.opt.splitright = true
+-- vim.opt.splitkeep = "cursor"
 -- vim.opt.mouse = ""
 -- vim.opt.showmode = true -- need to vim.opt it true to show commands in status line like prime.
 --------------Till here commented. :NOTE:
