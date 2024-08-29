@@ -35,5 +35,9 @@ return {
     --         --     view = "cmdline",
     --         -- },
     --     })
+    --     require("notify").setup({
+    --           timeout = 800,
+    --           stages = 'static'
+    --         })
     -- end,
 }

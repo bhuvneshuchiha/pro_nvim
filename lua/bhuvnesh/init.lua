@@ -27,12 +27,15 @@ vim.o.signcolumn = "yes"
 -- vim.o.pumheight = 15 --:NOTE:To prevent autocomplete menu large height
 
 vim.api.nvim_set_hl(0, 'Cursor', { fg = 'NONE', bg = 'NONE' })
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "Float", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "Float", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })     -- Removes background from line numbers
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" }) -- Removes background from the sign column
 vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "none" })
+-- vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC' })
+-- vim.api.nvim_set_hl(0, 'LineNr', { fg = 'grey' })
+-- vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#51B3EC' })
 
 
 -- If i want to keep doing lsp debugging
@@ -79,11 +82,33 @@ autocmd({ "BufWritePre" }, {
 
 -- HACK:    TO FORMAT USING LSP
 --To autoformat files using Neovim's native LSP.
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+
+-- FASTEST LSP FORMATTER
+vim.api.nvim_create_augroup('LspFormatting', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*',
+    group = 'LspFormatting',
+    callback = function()
+        vim.lsp.buf.format {
+            async = true,
+            timeout_ms = 500,
+            filter = function(clients)
+                return vim.tbl_filter(function(client)
+                    return pcall(function(_client)
+                        return _client.config.settings.autoFixOnSave or false
+                    end, client) or false
+                end, clients)
+            end
+        }
+    end
+})
+
 
 --Commented ----> :NOTE:
--- local o = vim.o
--- o.cursorline = false
+local o = vim.o
+-- o.cursorline = true
 -- o.expandtab = true
 -- o.smartindent = true
 -- o.tabstop = 2
@@ -123,12 +148,13 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 -------------->>>Till here is commented. :NOTE:
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+vim.opt.clipboard = "unnamed,unnamedplus"
 
 
 ------Commented ----->:NOTE:
 -- vim.opt.scrolloff = 8
 -- vim.opt.inccommand = "split"
--- vim.opt.ignorecase = true
+vim.opt.ignorecase = true
 -- vim.opt.smarttab = true
 -- vim.opt.breakindent = true
 -- vim.opt.wrap = false
@@ -169,6 +195,12 @@ if vim.fn.has("autocmd") then
     autocmd BufReadPost * lua RestoreCursorPosition()
   ]])
 end
+
+-- Set Netrw file menu to bold
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    command = "highlight Directory cterm=bold gui=bold"
+})
 
 --LSP autocmd
 autocmd("LspAttach", {

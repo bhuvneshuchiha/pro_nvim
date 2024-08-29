@@ -162,6 +162,8 @@ return {
                 -- 		filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
                 -- 	})
                 -- end,
+
+
                 ["emmet_ls"] = function()
                     -- configure emmet language server
                     local lspconfig = require("lspconfig")
@@ -169,8 +171,8 @@ return {
                         capabilities = capabilities,
                         filetypes = {
                             "html",
-                            "typescriptreact",
-                            "javascriptreact",
+                            -- "typescriptreact",
+                            -- "javascriptreact",
                             "css",
                             "sass",
                             "scss",
@@ -302,13 +304,20 @@ return {
                 { name = "luasnip" }, -- For luasnip users.
                 { name = "buffer" },
                 { name = "path" },
-                -- { name = "treesitter" },
-                -- { name = "tmux" },
+                { name = "treesitter" },
+                { name = "tmux" },
             }),
         })
 
         vim.diagnostic.config({
             -- update_in_insert = true,
+            --NOTE: Line number 315 to 320 is to disable hints.
+            -- virtual_text = {
+            --    severity = { min = vim.diagnostic.severity.WARN },
+            --  },
+            --  signs = {
+            --    severity = { min = vim.diagnostic.severity.WARN },
+            --  },
             float = {
                 focusable = false,
                 style = "minimal",

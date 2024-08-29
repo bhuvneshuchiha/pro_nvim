@@ -6,16 +6,16 @@ return {
         priority = 1000,
         config = function()
             require('rose-pine').setup {
-                variant = 'main',
+                variant = 'moon',
                 disable_background = true,
                 -- disable_float_background = true,
                 styles = {
                     italic = false,
-                    -- transparency = true,
+                    transparency = true,
                 },
                 highlight_groups = {
-                    -- TreesitterContext = { bg = 'text' },
-                    -- TreesitterContextLineNumber = { bg = 'NONE' },
+                    TreesitterContext = { bg = 'text' },
+                    TreesitterContextLineNumber = { bg = 'NONE' },
                     --Dont use any theme for alacritty if you want this cursor
                     --color to work.
                     Cursor = { fg = "none", bg = "none" }, --cursor transparency
@@ -79,7 +79,7 @@ return {
     --     "folke/tokyonight.nvim",
     --     config = function()
     --         require("tokyonight").setup({
-    --             style = "moon",
+    --             style = "night",
     --             styles = {
     --                 -- Style to be applied to different syntax groups
     --                 -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -120,24 +120,58 @@ return {
     --     end,
     -- },
 
+    -- {
+    --     "catppuccin/nvim",
+    --     priority = 10000,
+    --     config = function()
+    --         require("catppuccin").setup({
+    --             integrations = {
+    --                 cmp = true,
+    --                 fidget = true,
+    --                 gitsigns = true,
+    --                 harpoon = true,
+    --                 indent_blankline = {
+    --                     enabled = false,
+    --                     scope_color = "sapphire",
+    --                     colored_indent_levels = false,
+    --                 },
+    --                 mason = true,
+    --                 native_lsp = { enabled = true },
+    --                 noice = true,
+    --                 notify = true,
+    --                 symbols_outline = true,
+    --                 telescope = true,
+    --                 treesitter = true,
+    --                 treesitter_context = true,
+    --             },
+    --         })
+    --
+    --         vim.cmd.colorscheme("catppuccin-macchiato")
+    --
+    --
+    --         -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    --         -- 	vim.api.nvim_set_hl(0, group, {})
+    --         -- end
+    --     end,
+    -- },
+    --
     -- Best tokyonight conf
     -- {
     --     "folke/tokyonight.nvim",
     --     priority = 1000,
     --     config = function()
     --         require("tokyonight").setup({
-    --             style = "storm",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-    --             -- light_style = "day", -- The theme is used when the background is set to light
-    --             transparent = true,     -- Enable this to disable setting the background color
-    --             terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+    --             style = "storm",
+    --             -- light_style = "day",
+    --             transparent = true,
+    --             terminal_colors = true,
     --             styles = {
     --                 comments = { italic = false },
-    --                 keywords = { italic = false, bold = true },
+    --                 keywords = { italic = false, bold = false},
     --                 functions = {},
     --                 variables = {},
-    --                 -- Background styles. Can be "dark", "transparent" or "normal"
-    --                 sidebars = "transparent", -- style for sidebars, see below
-    --                 floats = "transparent",   -- style for floating windows
+    --                 sidebars = "transparent",
+    --                 floats = "transparent",
     --             },
     --             lualine_bold = true,
     --         })
@@ -154,7 +188,7 @@ return {
     --             terminal_colors = true, -- add neovim terminal colors
     --             undercurl = false,
     --             underline = false,
-    --             bold = true,
+    --             bold = false,
     --             italic = {
     --                 strings = false,
     --                 emphasis = false,
@@ -241,12 +275,20 @@ return {
     --         vim.g.sonokai_style = "andromeda"
     --         vim.cmd.colorscheme("sonokai")
     --
-    --         vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    --         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    --         vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+    --         -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    --         -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    --         -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
     --     end,
     -- },
-
+    -- {
+    --     "olimorris/onedarkpro.nvim",
+    --     priority = 1000,
+    --     config = function()
+    --         require("onedarkpro").setup()
+    --         -- somewhere in your config:
+    --         vim.cmd("colorscheme onedark")
+    --     end,
+    -- },
     --
     -- {
     --     "catppuccin/nvim",
@@ -262,7 +304,7 @@ return {
     --             flavour = "mocha",
     --             compile = { enabled = true, path = vim.fn.stdpath("cache") .. "/catppuccin" },
     --             transparent_background = true,
-    --             term_colors = false,
+    --             term_colors = true,
     --             integrations = {
     --                 aerial = false,
     --                 bufferline = true,
@@ -314,15 +356,16 @@ return {
     --         -- vim.g.catppuccin_flavour = "macchiato"
     --         vim.cmd([[colorscheme catppuccin]])
     --
-    --         -- local colors = {
-    --         --     fg = "#cdd6f4", -- text color
-    --         --     bg = "#1e1e2e", -- base color
-    --         -- }
-    --         --
+    --         local colors = {
+    --             fg = "#cdd6f4", -- text color
+    --             bg = "#1e1e2e", -- base color
+    --         }
+    --
     --         -- -- Set the StatusLine highlight group
-    --         -- vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.fg, bg = colors.bg, ctermfg = 15, ctermbg = 0 })
+    --         vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.fg, bg = colors.bg, ctermfg = 15, ctermbg = 0 })
     --         vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
     --         vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
+    --         vim.api.nvim_set_hl(0, 'Visual', { bg = '#575268', bold = false })
     --         -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     --         -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     --     end,
@@ -369,12 +412,40 @@ return {
     --             transparent = true,    -- do not set background color
     --             dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
     --             terminalColors = true, -- define vim.g.terminal_color_{0,17}
-    --             colors = {             -- add/modify theme and palette colors
-    --                 palette = {},
-    --                 theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    --             -- colors = {             -- add/modify theme and palette colors
+    --             --     palette = {},
+    --             --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    --             -- },
+    --             colors = {
+    --                 theme = {
+    --                     all = {
+    --                         ui = {
+    --                             bg_gutter = "none"
+    --                         }
+    --                     }
+    --                 }
     --             },
     --             overrides = function(colors) -- add/modify highlights
-    --                 return {}
+    --                 local theme = colors.theme
+    --                 return {
+    --                     Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+    --                     PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+    --                     PmenuSbar = { bg = theme.ui.bg_m1 },
+    --                     PmenuThumb = { bg = theme.ui.bg_p2 },
+    --                     NormalFloat = { bg = "none" },
+    --                     FloatBorder = { bg = "none" },
+    --                     FloatTitle = { bg = "none" },
+    --
+    --                     -- Save an hlgroup with dark background and dimmed foreground
+    --                     -- so that you can use it where your still want darker windows.
+    --                     -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
+    --                     NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+    --
+    --                     -- Popular plugins that open floats will link to NormalFloat by default;
+    --                     -- set their background accordingly if you wish to keep them dark and borderless
+    --                     LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+    --                     MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+    --                 }
     --             end,
     --             theme = "wave",    -- Load "wave" theme when 'background' option is not set
     --             background = {     -- map the value of 'background' option to a theme
@@ -386,7 +457,7 @@ return {
     --         vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     --         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     --         -- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-    --         vim.cmd("colorscheme kanagawa-wave") -- El colorscheme a utilizar
+    --         vim.cmd("colorscheme kanagawa") -- El colorscheme a utilizar
     --     end,
     -- }
     -- return {
